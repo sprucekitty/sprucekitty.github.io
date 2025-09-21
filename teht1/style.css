@@ -1,0 +1,137 @@
+html {scroll-behavior: smooth; scroll-padding-top: 72px;}  /* pehmeä vieritys */
+body {position: relative;}
+body { padding-top: 72px; } /* navbar fixed-top, ettei sisältö jää sen alle */
+
+/* Sora fontti H1–H3:lle, ei muutoksia kokoon tai spacingiin */
+h1, .h1, h2, .h2, h3, .h3 {
+    font-family: "Sora", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #16677A;
+}
+
+/* Leipäteksti Nunito */
+body {
+    font-family: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #3B2C26;
+}
+
+.brand-panel { background-color: #A3C6CC; color: #3B2C26; }
+
+/* Navigoinnin taustan väri */
+.navbar-custom {
+    background-color:#F9F9F9;
+} 
+
+/* brandin ja tekstin väri */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: #3B2C26;
+}
+
+/* linkin väri */
+.navbar-custom .navbar-nav .nav-link {color:#16677A;}
+.dropdown-menu .dropdown-item {color:#16677A;}
+
+/* hover & focus-linkin väri */
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link:focus {
+  color: #CC4C00;
+}
+
+.navbar-custom .nav-link.active {color: #CC4C00; text-decoration: underline; } /* aktiivisen tilan väri */
+
+/* Hover- ja focus-tyyli dropdownin linkeille */
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+    color: #CC4C00;
+    background-color: #ECECEC;
+}
+/* Myös active-tila samaksi */
+.dropdown-menu .dropdown-item:active { color: #CC4C00; background-color: #F9F9F9; }
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath stroke='%2316677A' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24 M4 16h24 M4 24h24'/%3E%3C/svg%3E");
+    }
+
+.custom-toggler.navbar-toggler {
+    border-color: #F9F9F9;
+}
+
+/* Karusellin kuvan otsikon muotoilu */
+.carousel-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Karusellin rivin/slide:n korkeus: valitse sopiva vh- tai px-arvo */
+#heroCarousel .carousel-item {
+    height: 70vh;                 /* esim. 30–50vh; voit tehdä breakpointit alle */
+    min-height: 220px;            /* valinnainen minimi pientä näyttöä varten */
+}
+
+/* Kuva täyttää alueen ilman vääristystä */
+#heroCarousel .carousel-item img {
+    height: 100%;
+    width: 100%;                  /* d-block w-100 tekee jo tämän, mutta ok */
+    object-fit: cover;            /* leikkaa reunaa, ei venytä */
+    object-position: center;      /* tarvittaessa 'center top' tms. */
+    display: block;
+}
+
+/* tumma overlay kuvan päälle */
+#heroCarousel .carousel-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #3B2C264D; /* tummuus 30 % ruskea */
+    pointer-events: none;         /* nuolit ja klikkaukset toimivat */
+    z-index: 1;
+}
+
+/* Caption vielä overlayn yläpuolelle */
+#heroCarousel .carousel-caption {
+    position: absolute;      /* Bootstrapissa tämä on jo oletus, mutta ei haittaa toistaa */
+    z-index: 2;
+}
+
+/* nuolet paksummiksi */
+#heroCarousel .carousel-control-prev-icon{
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round' d='M20 6 L10 16 L20 26'/%3E%3C/svg%3E");
+}
+#heroCarousel .carousel-control-next-icon{
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round' d='M12 6 L22 16 L12 26'/%3E%3C/svg%3E");
+}
+
+/* Kortin tausta ja pyöreät kulmat */
+.menu-card {
+    background: #A3C6CC;
+    border: 0;
+    border-radius: 1rem;
+}
+
+/* Yhtenäinen kuvan korkeus ilman venymistä */
+.card-img-fixed {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+.accordion-button:not(.collapsed){ background:#A3C6CC; color:#3B2C26; }
+.accordion-button:focus{ box-shadow:none; }
+
+/* Pyöristetyt kulmat jokaiselle itemille */
+#palveluluettelo .accordion-item{
+    border: 0;
+    border-radius: 1rem;
+    overflow: hidden;        /* ettei sisältö ylitä kulmia */
+}
+
+#palveluluettelo .accordion-button{
+  border-radius: 0;        /* sisäreunat suorat, ulkoreunat pyöreät */
+}
+
+/* Taulukon yleisilme brandin mukaiseksi */
+.table-brand thead th {
+  background: #A3C6CC;
+  color: #3B2C26;
+}

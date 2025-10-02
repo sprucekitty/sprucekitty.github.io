@@ -1,0 +1,25 @@
+{
+    "nimi": "Digitekniikat",
+    "osallistujamaara": "5 kpl",
+        "osallistujat": [
+        {
+            "nimi": "Jaana Joki"
+        },
+        {
+            "nimi": "Henna Mattila"
+        },
+        {
+            "nimi": "Matti Jutila"
+        },
+        {
+            "nimi": "Ulla Suominen"
+        },
+        {
+            "nimi": "Tarmo Taalasmaa"
+        }
+    ],
+    "alkaa": "13.1.2025",
+    "loppuu": "14.3.2025",
+    "kesto": "8 viikkoa",
+    "kuva": "https://sprucekitty.github.io/data/digitekniikat.jpg",
+}

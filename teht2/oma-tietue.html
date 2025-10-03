@@ -1,0 +1,131 @@
+<html>
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <title>Kirsin JSON omatietue</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Digi Intro, HTML, CSS, JSON">
+    <meta name="description" content="JSON harjoitussivusto">
+    <!--Bootstrapin CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--bootstrap, bundle-versiossa on mukana myös popper.js-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!--Sitten oma CSS, jolla voi ylikirjoittaa Bootstrapin asetuksia-->
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+<!--Sivun yläosa, jossa navigaatiopalkki-->
+<header>
+    <nav id="siteNav" class="navbar navbar-expand-sm navbar-light navbar-custom fixed-top">
+        <div class="container-fluid justify-content-center">
+            <!--Hamburger-menu pienille näytöille-->
+            <button class="navbar-toggler custom-toggler" type="button" 
+            data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" 
+            aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="collapsibleNavbar" class="collapse navbar-collapse justify-content-center">
+                <ul class="navbar-nav text-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Etusivu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="oma-tietue.html">Tehtava 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="poke.html">Tehtava 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="saa.html">Tehtävä 3</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<!--Sivun pääsisältö-->  
+<main class="container-fluid p-5 ">
+    <h1>Digitekniikat JSON tehtävä 1</h1>
+    <p>JSON:iin tutustuminen & Fetch API ().</p>
+     <!--Paneeli: Osa 1 (haetaan valmiista tietueesta ja tulostetaan vastaus1 -->
+    <div class="container p-5 my-5 rounded-4 brand-panel">
+        <h2>Osa 1: JSON tietue</h2>
+        <div id="vastaus1"></div>  
+    </div>
+    <!--Paneeli: Osa 2 (oma tietue ja tulostus vastaus2)-->
+    <div class="container p-5 my-5 rounded-4 brand-panel">
+        <h2>Osa 2: Oma tietue ja sen haku sivulle</h2>
+        <div id="vastaus2"></div>
+    </div>
+</main>
+<!--Oma JavaScript-->
+<script>
+    fetch('https://sprucekitty.github.io/data/tietue.json')
+    //Muunnetaan vastaus JS olio muotoon
+    .then(function (response) {
+        return response.json();
+    })
+    //Käsitellään muunnettu (eli JSON muotoinen) vastaus ja kutsutaan funktiota kerro1()ja välitetään sille json-vastaus
+    .then(function (responseJson) {
+        kerro1(responseJson);
+    })
+    //Jos hakemisessa tuli jokin virhe, kirjoitetaan sivulle siitä tieto
+    .catch(function (error) {
+        document.getElementById("vastaus1").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+    })
+
+    //Rakennetaan Osa 1 sisältö ja kirjoitetaan sen vastaus1:een
+    function kerro1(obj) {
+        let tiedot = "<h3>" + obj.otsikko + "</h3>" + obj.kuvaus + "<br><hr>";
+        //Kuva (Bootstrap: img-fluid = skaalautuva, w-100 = täysi leveys, d-block = block-elementtinä)
+        tiedot += "<p><img class='img-fluid w-100 d-block' alt='Kuva luokkahuoneesta' src=" + obj.kuva + "></p>";
+        //Opintojakso-otsikko keskitettynä
+        tiedot += "<h3 class='text-center'>Opintojakso</h3>";
+        //Opintojakson perustiedot keskitettynä
+        tiedot += "<p class='text-center'>"
+            + "Nimi: " + obj.opintojakso.nimi + "<br>"
+            + "Tunnus: " + obj.opintojakso.tunnus + "<br>" 
+            + "Opintopisteet: " + obj.opintojakso.opintopisteet + "<br></p>";
+        //Aiheet-lista
+        tiedot += "<h3>Aiheet</h3><p>";
+        for (var i = 0; i < obj.tekniikat.length; i++) {
+            tiedot += "<b>Aihe: " + obj.tekniikat[i].aihe + "</b>";
+            tiedot += " <a href=" + obj.tekniikat[i].linkki + ">" + obj.tekniikat[i].linkki + "</a><br>";
+        }
+        tiedot += "</p>";
+        //Kirjoitetaan koottu sisältö sivulle
+        document.getElementById("vastaus1").innerHTML = tiedot;
+    }
+
+    //Haetaan Osa 2 JSON-tiedot (oma tietue)
+    fetch('https://sprucekitty.github.io/data/tietue2.json')
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (responseJson) {
+        kerro2(responseJson);
+    })
+    .catch(function (error) {
+        document.getElementById("vastaus2").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+    })
+
+    //Kutsutaan kerro2 tulostamaan sisältö vastaus2:een
+    function kerro2(obj) {
+        let kurssi = "<h3>" + obj.nimi + "</h3>";
+        kurssi += "<p>" + obj.alkaa + " - " + obj.loppuu + "<br>" + obj.kesto + "<br><hr></p>";
+        kurssi += "<h3>Osallistujat</h3><p>";
+        //Listataan osallistujien nimet silmukassa
+        kurssi += obj.osallistujamaara + "<br>"
+            for (var i = 0; i < obj.osallistujat.length; i++) {
+                kurssi +=  obj.osallistujat[i].nimi + "<br>";
+            }
+        kurssi += "</p>";
+        //Kuva (skaalautuva, täysleveä, block)
+        kurssi += "<p><img class='img-fluid w-100 d-block' alt='Futuristinen kuva ihmisistä tietokoneella' src=" + obj.kuva + "></p>";
+        kurssi += '<p class="text-muted small text-center">Kuva generoitu tekoälyllä</p>';
+        document.getElementById("vastaus2").innerHTML = kurssi;
+    }
+</script>
+</body>
+</html>

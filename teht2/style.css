@@ -1,0 +1,41 @@
+html {scroll-behavior: smooth; scroll-padding-top: 50px;}  /* pehmeä vieritys */
+body {position: relative;}
+body {padding-top: 50px; } /* navbar fixed-top, ettei sisältö jää sen alle */
+
+/* Navigoinnin taustan väri */
+.navbar-custom {
+    background-color:#D6F0DD;
+} 
+
+/* linkin väri */
+.navbar-custom .navbar-nav .nav-link {
+    color:#16677A;
+}
+
+/* hover & focus-linkin väri */
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link:focus {
+  color: #CC4C00;
+}
+
+/* aktiivisen tilan väri */
+.navbar-custom .nav-link.active {color: #CC4C00; text-decoration: underline; } 
+
+/* hampurilaisvalikko */
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath stroke='%2316677A' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24 M4 16h24 M4 24h24'/%3E%3C/svg%3E");
+    }
+.custom-toggler.navbar-toggler {
+    border-color: #F9F9F9;
+}
+
+/* paneelien tausta ja teksti */
+.brand-panel { background-color: #D6F0DD; color: #3B2C26; }
+
+/* Kortin tausta ja pyöreät kulmat */
+.menu-card {
+    background: #D6F0DD;
+    border: 0;
+    border-radius: 1rem;
+}
+

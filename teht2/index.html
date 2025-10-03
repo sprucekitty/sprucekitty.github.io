@@ -1,0 +1,95 @@
+<html>
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <title>Kirsin JSON harjoitus</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Digi Intro, HTML, CSS, JSON">
+    <meta name="description" content="JSON harjoitussivusto">
+    <!-- Bootstrapin CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap, bundle-versiossa on mukana myös popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Sitten oma CSS, jolla voi ylikirjoittaa Bootstrapin asetuksia -->
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+<!-- Sivun yläosa, jossa navigaatiopalkki -->
+<header>
+    <nav id="siteNav" class="navbar navbar-expand-sm navbar-light navbar-custom fixed-top">
+        <div class="container-fluid justify-content-center">
+            <!-- Hamburger-menu pienille näytöille -->
+            <button class="navbar-toggler custom-toggler" type="button" 
+            data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" 
+            aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Varsinainen navigaatiolista, joka romahtaa hamburger-menuun pienillä näytöillä -->
+            <div id="collapsibleNavbar" class="collapse navbar-collapse justify-content-center">
+                <ul class="navbar-nav text-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Etusivu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="oma-tietue.html">Tehtava 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="poke.html">Tehtava 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="saa.html">Tehtävä 3</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="container-fluid p-5">
+        <h1>Digitekniikat JSON tehtävät</h1>
+        <p>Tässä sivustossa on toteuttu vastaukset digitekniikat opintojakson JSON oppimistetävään.</p>
+        <!-- Tehtäväkortit -->
+        <section id="tehtavat">
+            <!-- Korttirakenne rivissä: 1 sarake pienillä ja keskikokoisilla, 3 suurilla) -->
+            <div class="container pt-5">
+                <div class="row row-cols-1 row-cols-lg-3 g-4">
+                    <div class="col">
+                        <div class="card menu-card h-100">
+                            <div class="card-body p-4">
+                                <h2>Tehtävä 1</h2>
+                                <p>Osa 1: JSON tietue</p>
+                                <p>Osa 2: Oma tietue ja sen haku sivulle</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card menu-card h-100">
+                            <div class="card-body p-4">
+                                <h2>Tehtävä 2</h2>
+                                <p>Osa 1: Pokemon haku</p>
+                                <p>Osa 2: Käännä pokemon</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card menu-card h-100">
+                            <div class="card-body p-4">
+                                <h2>Tehtävä 3</h2>
+                                <p>JSON säätiedot</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>             
+        </section>
+    </div>   
+</main>
+
+<!-- Oma JavaScript -->
+<script>
+
+</script>
+</body>
+</html>

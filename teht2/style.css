@@ -2,8 +2,6 @@ html {scroll-behavior: smooth; scroll-padding-top: 80px;}  /* pehmeä vieritys j
 body {position: relative;}
 body {padding-top: 50px; } /* navbar fixed-top, ettei sisältö jää sen alle */
 
-:target { outline: 2px dashed red; }
-
 /* Navigoinnin taustan väri */
 .navbar-custom {
     background-color:#D6F0DD;

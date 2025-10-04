@@ -1,6 +1,8 @@
-html {scroll-behavior: smooth; scroll-padding-top: 50px;}  /* pehmeä vieritys */
+html {scroll-behavior: smooth; scroll-padding-top: 80px;}  /* pehmeä vieritys ja navbarin kokeus */
 body {position: relative;}
 body {padding-top: 50px; } /* navbar fixed-top, ettei sisältö jää sen alle */
+
+:target { outline: 2px dashed red; }
 
 /* Navigoinnin taustan väri */
 .navbar-custom {

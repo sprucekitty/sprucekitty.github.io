@@ -45,19 +45,25 @@
     </nav>
 </header>
 <!--Sivun pääsisältö-->  
-<main class="container-fluid p-5 ">
-    <h1>Digitekniikat JSON tehtävä 1</h1>
-    <p>JSON:iin tutustuminen & Fetch API ().</p>
-     <!--Paneeli: Osa 1 haetaan valmiista tietueesta ja tulostetaan vastaus1 -->
-    <div class="container py-5 px-4 my-3 rounded-4 brand-panel">
-        <h2>Osa 1: JSON tietue</h2>
-        <div id="vastaus1"></div>  
-    </div>
-    <!--Paneeli: Osa 2 (oma tietue ja tulostus vastaus2)-->
-    <div class="container py-5 px-4 my-3 rounded-4 brand-panel">
-        <h2>Osa 2: Oma tietue ja sen haku sivulle</h2>
-        <div id="vastaus2"></div>
-    </div>
+<main class="container-fluid">
+    <section class="container pt-5">
+        <h1>Digitekniikat JSON tehtävä 1</h1>
+        <p>JSON:iin tutustuminen & Fetch API ().</p>
+    </section>
+    <!--Paneeli osalle 1 haetaan valmiista tietueesta ja tulostetaan vastaus1 -->
+    <section id="teht1a">
+        <div class="container py-5 px-4 my-3 rounded-4 brand-panel">
+            <h2>Osa 1: JSON tietue</h2>
+            <div id="vastaus1"></div>  
+        </div>
+    </section>
+    <!--Paneeli osalle 2 jossa oma tietue ja tulostus vastaus2-->
+    <section id="teht1b">
+        <div class="container py-5 px-4 my-3 rounded-4 brand-panel">
+            <h2>Osa 2: Oma tietue ja sen haku sivulle</h2>
+            <div id="vastaus2"></div>
+        </div>
+    </section>    
 </main>
 <!--Oma JavaScript-->
 <script>

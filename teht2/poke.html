@@ -45,28 +45,34 @@
     </nav>
 </header>
 <!--Sivun pääsisältö. Container-fluid = koko sivun leveys, p-5 = isot sisämarginaalit -->  
-<main class="container-fluid p-5 ">
-    <h1>Digitekniikat JSON tehtävä 2</h1>
-    <p>JSON-muotoisen tiedon hakua julkisista palveluista.</p>
-    <!--Korttimainen paneeli-->
-    <div class="container p-5 my-3 rounded-4 brand-panel">
-        <h2>Osa 1: Pokemonin haku & Osa2: Pokemon kääntö</h2>
-        <!--Hakukenttä ja napit-->
-        <input type="text" id="pokemonName" placeholder="Enter pokemon name"><br><br>
-        <button onclick="poke()">Hae</button>
-        <button onclick="kaanna()">Käännä</button><br><br>
-        <!--Viestit/virheilmoitukset-->
-        <div id="vastaus"></div>  
-        <div id="nimi">Kirjoita laatikkooon Pokemonin nimi</div>
-        <div id="ominaisuudet"></div>
-        <p id="kuva2"></p>
-    </div>
-    <!--Listataan esimerkki-Pokemonit avuksi-->
-    <div class="container p-5 my-5 rounded-4 brand-panel">
-        <h2>Pokemoneja</h2>
-        <p>Tässä joitain Pokemonea jos et muista ulkoa. Lista on haettu sivustolta pokeapi.co.</p>
-        <div id="pokelista"></div>
-    </div>
+<main class="container-fluid">
+    <section class="container pt-5">
+        <h1>Digitekniikat JSON tehtävä 2</h1>
+        <p>JSON-muotoisen tiedon hakua julkisista palveluista.</p>
+    </section>
+    <!--Korttimainen paneeli jossa Pokemon haku ja kääntö-->
+    <section id="teht2">
+        <div class="container p-5 my-3 rounded-4 brand-panel">
+            <h2>Osa 1: Pokemonin haku & Osa2: Pokemon kääntö</h2>
+            <!--Hakukenttä ja napit-->
+            <input type="text" id="pokemonName" placeholder="Enter pokemon name"><br><br>
+            <button onclick="poke()">Hae</button>
+            <button onclick="kaanna()">Käännä</button><br><br>
+            <!--Viestit/virheilmoitukset-->
+            <div id="vastaus"></div>  
+            <div id="nimi">Kirjoita laatikkooon Pokemonin nimi</div>
+            <div id="ominaisuudet"></div>
+            <div id="kuva2"></div>
+        </div>
+    </section>
+    <!--Toinen paneeli jossa listataan esimerkki-Pokemonit avuksi-->
+    <section id="pokemonit">
+        <div class="container p-5 my-3 rounded-4 brand-panel">
+            <h2>Pokemoneja</h2>
+            <p>Tässä joitain Pokemonea jos et muista ulkoa. Lista on haettu sivustolta pokeapi.co.</p>
+            <div id="pokelista"></div>
+        </div>
+    </section>
 </main>
 <!--Oma JavaScript-->
 <script>

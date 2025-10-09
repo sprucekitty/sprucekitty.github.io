@@ -1,7 +1,7 @@
-
 html { scroll-behavior: smooth; }
+body { padding-top: 60px; } /* navbar fixed-top, ettei sisältö jää sen alle */
 /* ettei ankkuri jää navbarin alle */
-section[id] { scroll-margin-top: 5rem; }
+section[id] { scroll-margin-top: 60px; }
 
 /* Vaikuttaa: <nav class="navbar navbar-dark ..."> */
 .navbar.navbar-dark{
@@ -31,8 +31,8 @@ font-family: "Orbitron", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetic
     background:
     linear-gradient(
         to bottom,
-        rgba(0,0,0,0.25) 0%,
-        rgba(0,0,0,0.35) 55%,
+        rgba(0,0,0,0.25) 5%,
+        rgba(0,0,0,0.35) 80%,
         #002b36 100%
     ),
     url("photos/pexels-jacub-gomez-447561-1142950.jpg") center / cover no-repeat;
@@ -44,11 +44,9 @@ font-family: "Orbitron", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetic
 
 /* Hero nuolipainike */
 .hero{ position: relative; }    /* nuolen sijoittelua varten */
-
 .hero-scroll{
     position: static;
     margin-top: 40px;
-    
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -59,7 +57,6 @@ font-family: "Orbitron", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetic
     border: 2px solid rgba(255,255,255,1);
     border-radius: 999px;
     text-decoration: none;
-
     transition: background-color .2s ease, transform .15s ease;
     /* kevyt “hengitys” */
     animation: hero-bob 1.6s ease-in-out infinite alternate;
@@ -70,16 +67,17 @@ font-family: "Orbitron", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetic
     outline: 0;
     transform: translateY(-2px);
 }
+/* keinuttaa nuolta */
 @keyframes hero-bob{
-    from { transform: translateX(-50%) translateY(0); }
-    to   { transform: translateX(-50%) translateY(-4px); }
+    from { transform: translateY(0); }
+    to   { transform: translateY(-4px); }
 }
 /* Kunnioita “vähennä animaatioita” -asetusta */
 @media (prefers-reduced-motion: reduce){
     .hero-scroll{ animation: none; }
 }
 
-/* Full-width image band (same logic as hero/prefooter) */
+/* Full-width image band */
 .break-band{
     width: 100%;
     min-height: 60vh;                              
@@ -189,7 +187,7 @@ h1 {
     .modal-title{ font-size:1.75rem; }
 }
 
-/* Episodi-metriikat modaalissa: otsikko UPPERCASE, arvo pienellä */
+/* Episodi-metriikat modaalissa */
 .metric-label {
     text-transform: uppercase;
     opacity: 0.75;
@@ -207,6 +205,7 @@ h1 {
     margin-right: auto;
 }
 
+/* leipätekstin fonttikoko */
 :root{
   --bs-body-font-size: 1.125rem; /* 18px */
 }

@@ -22,10 +22,11 @@
 <body>
 <!-- ankkuri sivun alkuun -->
 <div id="top"></div>
-<header class="sticky-top">
+<header class="fixed-top">
+    <!-- Navbar-->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand p-2" href="#top">Star Trek Mini Encyclopedia</a>
+            <a class="navbar-brand" href="#top">Star Trek Pocket Guide</a>
             <button class="navbar-toggler" type="button" 
             data-bs-toggle="collapse" data-bs-target="#mainNav"
             aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,21 +34,21 @@
             </button>
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item p-2"><a class="nav-link" href="#quotes">Picard's Quote</a></li>
-                    <li class="nav-item p-2"><a class="nav-link" href="#episodes">Seasons & Episodes</a></li>
-                    <li class="nav-item p-2"><a class="nav-link" href="#reading">Read More</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quotes">Captain's Log</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#episodes">Seasons & Episodes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reading">Read More</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 </header>    
-
+<!--hero-lohko -->
 <main class="container-fluid">
     <section class="hero">
         <div class="container">
-            <h1>Star Trek Mini Ensyclopedia</h1>
-            <p class="lead">Seasons & episodes | Picard's quote of a day</p>
-        <!-- Scroll-down arrow -->
+            <h1>Star Trek Pocket Guide</h1>
+            <p class="lead px-5">Seasons & episodes | Picard's quote of a day</p>
+        <!--nuoli alas-->
         <a href="#quotes" class="hero-scroll" aria-label="Scroll to content">
             <!-- pieni inline-SVG nuoli -->
             <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
@@ -56,87 +57,99 @@
         </a>
     </div>
     </section>
-
-    <section id="quotes" class="container p-2 col-12 col-lg-8 col-xl-7">
-        <h2 class="section-title">Picard's Quote of the Day</h2>
-        <!--Nappi-->
-        <button type="button" class="btn btn-primary mb-3" onclick="loadPicardQuote()">New quote</button>
-        <!--Laatikko, jossa quote + lähde-->
-        <div class="card bg-secondary-subtle text-dark rounded-3">
-            <div class="card-header bg-transparent border-0 pt-3">
-                <span class="small text-uppercase opacity-75 fw-semibold">Quote</span>
-            </div>
-            <div class="card-body">
-                <blockquote class="blockquote mb-1" id="picardQuote">Click “New quote” to fetch a line.</blockquote><br>
-                <figcaption class="blockquote-footer text-dark mb-0" id="picardSource"></figcaption>
-            </div>
-        </div>
-    </section>
-
-    <section id="episodes" class="container p-2 col-12 col-lg-8 col-xl-7">
-        <h2 class="section-title">Star Trek — Seasons & Episodes</h2>
-        <p>Press a series button to load its seasons and episodes below.</p>
-        <!-- Sarjan valinta -->
-        <div class="d-flex flex-wrap gap-3">
-            <button type="button" class="btn btn-primary" onclick="loadSeries(490)">The Original Series</button>
-            <button type="button" class="btn btn-primary" onclick="loadSeries(491)">The Next Generation</button>
-            <button type="button" class="btn btn-primary" onclick="loadSeries(493)">Deep Space Nine</button> 
-            <button type="button" class="btn btn-primary" onclick="loadSeries(492)">Voyager</button> 
-            <button type="button" class="btn btn-primary" onclick="loadSeries(714)">Enterprise</button> 
-            <button type="button" class="btn btn-primary" onclick="loadSeries(7480)">Discovery</button>
-            <button type="button" class="btn btn-primary" onclick="loadSeries(42193)">Picard</button>
-        </div>
-        <!--Sarjahaitarin paikka-->
-        <div class="narrow mt-4">
-            <div id="seasonsAccordion" class="accordion"></div>
-        </div>
-        <!--Jakson modaali kortti-->
-        <div class="modal fade" id="episodeModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h2 class="modal-title" id="episodeModalTitle">Episode</h2>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <!--Picardin lainaukset-lohko-->
+    <section id="quotes" class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8 col-xl-7 px-3">
+            <h2 class="section-title">Captain's Log (Mini-Compendium)</h2>
+            <p>Picard's Quote of the Day</p>
+            <!-- Nappi, joka käynnistää lainauksen haun JSONista -->
+            <button type="button" class="btn btn-primary mb-3" onclick="loadPicardQuote()">New quote</button>
+            <!-- Laatikko, jossa quote + lähde -->
+                <div class="card bg-secondary-subtle text-dark rounded-3">
+                    <div class="card-header bg-transparent border-0 pt-3">
+                        <span class="small text-uppercase opacity-75 fw-semibold">Quote</span>
                     </div>
-                    <div class="modal-body">
-                        <div id="episodeModalBody">Loading…</div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-2" id="picardQuote">Click “New quote” to fetch a line.</blockquote><br>
+                        <footer class="blockquote-footer text-dark mb-0" id="picardSource"></footer>
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
     </section>
-    
-    <!-- Full-width image band between Episodes and Reading -->
+    <!--jaksojen haku sarjoista-lohko-->
+    <section id="episodes" class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8 col-xl-7 px-3">
+                <h2 class="section-title">Star Trek — Seasons & Episodes</h2>
+                <p>Press a series button to load its seasons and episodes below.</p>
+            <!-- Sarjan valinta -->
+                <div class="d-flex flex-wrap gap-3">
+                    <button type="button" class="btn btn-primary" onclick="loadSeries(490)">The Original Series</button>
+                    <button type="button" class="btn btn-primary" onclick="loadSeries(491)">The Next Generation</button>
+                    <button type="button" class="btn btn-primary" onclick="loadSeries(493)">Deep Space Nine</button>
+                    <button type="button" class="btn btn-primary" onclick="loadSeries(492)">Voyager</button>
+                    <button type="button" class="btn btn-primary" onclick="loadSeries(714)">Enterprise</button>
+                    <button type="button" class="btn btn-primary" onclick="loadSeries(7480)">Discovery</button>
+                    <button type="button" class="btn btn-primary" onclick="loadSeries(42193)">Picard</button>
+                </div>
+                <!-- Sarjahaitarin paikka -->
+                <div class="narrow mt-4">
+                    <div id="seasonsAccordion" class="accordion"></div>
+                </div>
+                <!-- Jakson modaali kortti -->
+                <div class="modal fade" id="episodeModal" tabindex="-1" aria-labelledby="episodeModalTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h2 class="modal-title" id="episodeModalTitle">Episode</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <div id="episodeModalBody">Loading…</div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--lohko jossa koko näytön levyinen kuvituskuva, varaus tekstille-->
     <section class="break-band">
         <div class="container text-center">
             <!--<h2 class="section-title">Optional heading</h2>
             <p class="lead">Optional subheading</p>-->
         </div>
     </section>
-    
-    <section id="reading" class="container p-2 col-12 col-lg-8 col-xl-7">
-        <h2 class="section-title">Read More</h2>
-        <p>Read more about Star Trek here:</p>
-        <ul>
-            <li>
-                <a href="https://www.startrek.com/en-un" target="_blank" rel="noopener noreferrer">Official Star Trek website</a>
-                — news, show overviews, and release information.
-            </li>
-            <li>
-                <a href="https://memory-alpha.fandom.com/wiki/Portal:Main" target="_blank" rel="noopener noreferrer">Memory Alpha</a>
-                — a fan-maintained wiki with detailed articles on episodes, characters, and technology.
-            </li>
-        </ul>
+    <!--lue lisää-lohko, linkit lisälähteisiin-->
+    <section id="reading" class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8 col-xl-7 px-3">
+                <h2 class="section-title">Read More</h2>
+                <p>Read more about Star Trek here:</p>
+                <ul>
+                    <li>
+                        <a href="https://www.startrek.com/en-un" target="_blank" rel="noopener noreferrer">Official Star Trek website</a>
+                        — news, show overviews, and release information.
+                    </li>
+                    <li>
+                        <a href="https://memory-alpha.fandom.com/wiki/Portal:Main" target="_blank" rel="noopener noreferrer">Memory Alpha</a>
+                        — a fan-maintained wiki with detailed articles on episodes, characters, and technology.
+                    </li>
+                </ul>
+            </div>
+        </div>
     </section>
-</main>
-
+    <!--lohko jossa koko näytön levyinen kuvituskuva, varaus tekstille-->
     <section class="prefooter-band">
         <div class="container text-center">
             <!-- <h2 class="section-title">Optional heading</h2>
             <p class="lead">Optional subheading</p> -->
         </div>
     </section>
-
+</main>
+<!--footer-->
 <footer class="text-center mt-5 mb-4">
     <div>© <span id="year"></span> Kirsi Vartiainen. Site code and design.</div>
     <div>“Star Trek” and related marks are trademarks of Paramount Global. No infringement intended.</div>
@@ -151,30 +164,52 @@
 </body>
 
 <script>
-    /* Lainauksen valinta */
+    // Suljetaan hampurilaisvalikko
+document.addEventListener('DOMContentLoaded', function () {
+  var nav = document.getElementById('mainNav');
+  if (!nav || typeof bootstrap === 'undefined') return;
+  var collapse = bootstrap.Collapse.getOrCreateInstance(nav, { toggle: false });
+
+  document.querySelectorAll('.navbar .nav-link[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      collapse.hide(); // sulje hamburgeri, anna ankkurin toimia normaalisti
+    });
+  });
+});
+</script>
+
+<script>
+    // Hakee satunnaisen Picard-lainauksen ja näyttää sen kortissa
     function loadPicardQuote() {
+        // Otetaan talteen elementit, joihin tekstit kirjoitetaan
         var quoteEl  = document.getElementById("picardQuote");
         var sourceEl = document.getElementById("picardSource");
-
+        // Näytetään latausviesti ja tyhjennä lähde
         quoteEl.textContent  = "Loading…";
         sourceEl.textContent = "";
-
+        // Haetaan JSON GitHubin raakadatasta
         fetch("https://raw.githubusercontent.com/ohanessian/star-trek-lines/main/data/lines_by_character.json")
+        // 1) Tarkisttetaan, että HTTP-vastaus on ok  2) Muunnetaan JSONiksi
         .then(function (res) {
             if (!res.ok) throw new Error("HTTP " + res.status);
             return res.json();
         })
+        // Kun JSON on saatu:
         .then(function (data) {
+            // Etsitään avain, jonka nimessä esiintyy "picard" (kirjainkoosta riippumatta)
             var key = Object.keys(data).find(function(k){ 
                 return k && k.toLowerCase().indexOf("picard") !== -1;
             });
             if (!key) { throw new Error("No Picard key"); }
-            
+            // Otetaan talteen kyseisen avaimen rivit (taulukko sitaatteja)
             var lines = data[key];
+            // Arvotaan satunnainen indeksi ja poimi yksi sitaatti
             var text = lines[Math.floor(Math.random() * lines.length)];
+            // Kirjoitetaan lainaus ja lähde korttiin
             document.getElementById("picardQuote").innerText  = "“" + text + "”";
             document.getElementById("picardSource").innerText = "Jean-Luc Picard";
         })
+        // Mahdollisen virheen sattuessa näytetään viesti
         .catch(function () {
             document.getElementById("picardQuote").innerText  = "Could not fetch quote.";
             document.getElementById("picardSource").innerText = "";
@@ -182,113 +217,139 @@
     }
 
 
-    /* Sarjan valinta: haetaan kaudet ja piirretään accordion */
+    // Sarjan valinta: haetaan kaudet ja piirretään accordion
     function loadSeries(showId) {
+        // Accordion, johon kaudet piirretään
         var acc = document.getElementById("seasonsAccordion");
+        // Väliaikainen latausviesti
         acc.innerHTML = "<p>Loading seasons…</p>";
-        
+        // Haetaan kaudet TVmaze REST-rajapinnasta
         fetch("https://api.tvmaze.com/shows/" + showId + "/seasons")
         .then(function(res){
+            // Virhe, jos HTTP-status ei ole 2xx → ohjautuu .catch-haaraan
             if (!res.ok) throw new Error("HTTP " + res.status);
+            // Muunnetaan JSONiksi
             return res.json(); 
         })
         .then(function(seasons){
+            // Jos data ei ole taulukko tai kausia ei löydy
             if (!Array.isArray(seasons) || seasons.length === 0) {
                 acc.innerHTML = "<p>No seasons found.</p>";
                 return;
             }
+            // Järjesttetään kaudet kausinumeroiden mukaan nousevasti
             seasons.sort(function(a,b){ return a.number - b.number; });
-
+            // Rakennetaan accordionin sisällön HTML merkkijonona
             var html = "";
             for (var i = 0; i < seasons.length; i++) {
                 var s = seasons[i];
+                // Poimitaan vuodesta (YYYY-MM-DD) vain vuosi-osa otsikkoon
                 var year = s.premiereDate ? s.premiereDate.substring(0,4) : "";
+                // ID:t headerille, collapselle ja episodien “laatikolle”
                 var hid   = "h_" + s.id;
                 var cid   = "c_" + s.id;
                 var boxId = "eps_" + s.id;
-
+                // Yksi accordion-item / kausi
                 html +=
                     "<div class='accordion-item'>" +
+                    // Kausiotsikon header
                     "<h3 class='accordion-header' id='"+hid+"'>" +
+                        // Otsikkonappi avaa/sulkee kauden 
                         "<button class='accordion-button collapsed' type='button' " +
                             "data-bs-toggle='collapse' data-bs-target='#"+cid+"' " +
                             "aria-expanded='false' aria-controls='"+cid+"' " +
+                            // Kun käyttäjä klikkaa kauden auki, haetaan jaksot ja piirretään ne boxId-elementtiin.
                             "onclick=\"loadEpisodes("+s.id+", '"+boxId+"')\">" +
                         "Season " + s.number + (year ? " ("+year+")" : "") +
                         "</button>" +
                     "</h3>" +
+                    // Varsinainen avautuva sisältö
                     "<div id='"+cid+"' class='accordion-collapse collapse' aria-labelledby='"+hid+"' data-bs-parent='#seasonsAccordion'>" +
                         "<div class='accordion-body'>" +
+                             // Paikkamerkki korvataan oikeilla jaksoilla, kun käyttäjä avaa kauden
                             "<div id='"+boxId+"' class='text-muted small'>Click to load episodes…</div>" +
                         "</div>" +
                     "</div>" +
                 "</div>";
             }
-          acc.innerHTML = html;
+            // Kirjoitetaan koko koottu HTML kerralla
+            acc.innerHTML = html;
         })
+        // Yleinen virhetilanne (esim. verkko poikki tms.)
         .catch(function(){
             acc.innerHTML = "<p>Error loading seasons.</p>";
         });
     }
 
-    /* Haetaan kauden jaksot ja listataan  */
+    // Haetaan kauden jaksot
     function loadEpisodes(seasonId, targetId) {
         var box = document.getElementById(targetId);
-        if (!box) return;
-        if (box.getAttribute("data-loaded") === "1") return;
-
+        // Mihin tulostetaan
+        if (!box) return; // ei kohdetta → ei tehdä mitään
+        // Jos tämä kausi on jo ladattu aiemmin, älä lataa uudelleen
+        if (box.getAttribute("data-loaded") === "1") return; 
+        // Väliaikainen latausviesti
         box.textContent = "Loading episodes…";
-
+        // Hae kauden jaksot
         fetch("https://api.tvmaze.com/seasons/" + seasonId + "/episodes")
             .then(function(res){
                 if (!res.ok) throw new Error("HTTP " + res.status);
                 return res.json(); 
             })
             .then(function(eps){
+                // Jos ei dataa tai tyhjä lista
                 if (!Array.isArray(eps) || eps.length === 0) {
                     box.textContent = "No episodes.";
                     return;
             }
-
+            // Aloita järjestetty lista
             var list = "<ol class='mb-0'>";
             for (var i=0; i<eps.length; i++){
                 var ep = eps[i];
+                // Numero 2-numeroiseksi, tai "--" jos puuttuu
                 var num = (ep.number != null) ? String(ep.number).padStart(2,"0") : "--";
                 var air = ep.airdate ? ep.airdate : "";
-            
-            list +=
-                "<li class='d-flex align-items-center justify-content-between'>" + // vasen teksti kasvaa, typistyy tarvittaessa
-                + num + ": " + ep.name + "</div>" + 
-            // pieni, siro “Details”-nappi
-            "<button type='button' class='btn btn-primary btn-sm btn-episode my-2 me-4 flex-shrink-0' " +
-              "data-bs-toggle='modal' data-bs-target='#episodeModal' " +
-              "onclick='openEpisodeModal(" + ep.id + ")'>Details</button>" +
-              "</li>";
+                // vasen teksti ja oikea nappi ääripäissä
+                list +=
+                "<li class='d-flex align-items-center'>" +// vasen teksti kasvaa, typistyy tarvittaessa
+                    "<div>" + num + ": " + ep.name + "</div>" + 
+                    // oikea puoli nappi
+                    "<button type='button' " +
+                        "class='btn btn-primary btn-sm btn-episode my-2 ms-auto' " +
+                        "data-bs-toggle='modal' data-bs-target='#episodeModal' " +
+                        "onclick='openEpisodeModal(" + ep.id + ")'>" +
+                        "Details" +
+                    "</button>" +
+                "</li>";
             }
             list += "</ol>";
-
+            // Kirjoita listaus ja merkkaa ladatuksi
             box.innerHTML = list;
             box.setAttribute("data-loaded","1");
         })
         .catch(function(){
+            // Yleisvirhe (esim. verkko poikki)
             box.textContent = "Error loading episodes.";
         });
     }
 
-    /* Avaataab modaali jan näytetään: otsikko, kuva, 30/70-sarakkeet (vasen metrikkalaatikot, oikea summary) */
+    // Avaataan modaali: otsikko, kuva, 30/70-sarakkeet
     function openEpisodeModal(episodeId) {
-    var titleEl = document.getElementById("episodeModalTitle");
-    var bodyEl  = document.getElementById("episodeModalBody");
+        // Otsikko- ja runkoelementit modaalissa
+        var titleEl = document.getElementById("episodeModalTitle");
+        var bodyEl  = document.getElementById("episodeModalBody");
+        // Alustavat viestit kunnes data on haettu
+        titleEl.textContent = "Loading…";
+        bodyEl.textContent  = "Loading…";
 
-    titleEl.textContent = "Loading…";
-    bodyEl.textContent  = "Loading…";
-
+    // Hae episodin tiedot TVmazesta
     fetch("https://api.tvmaze.com/episodes/" + episodeId)
         .then(function (res) {
             if (!res.ok) throw new Error("HTTP " + res.status);
             return res.json();
         })
         .then(function (ep) {
+            // Poimitaan ja normalisoidaan kentät; jos arvo puuttuu, näytä "—"
             var imgSrc  = ep.image ? (ep.image.original || ep.image.medium) : null;
             var name    = ep.name || "—";
             var rating  = (ep.rating && ep.rating.average != null) ? ep.rating.average : "—";
@@ -296,11 +357,12 @@
             var number  = (ep.number != null) ? ep.number : "—";
             var airdate = ep.airdate || "—";
             var runtime = (ep.runtime != null) ? (ep.runtime + " min") : "—";
+            // TVmaze summary sisältää usein HTML-tageja, joten poistetaan ne näkyvistä
             var summary = ep.summary ? ep.summary.replace(/<[^>]+>/g, "") : "—";
-            
-            titleEl.textContent = name; // Episodin nimi modalin otsikkoon
+            // Asetetaan episodin nimi modalin otsikoksi
+            titleEl.textContent = name;
 
-            /* Yksittäinen “laatikko” vasempaan sarakkeeseen */
+            // Yksittäinen “laatikko” vasempaan sarakkeeseen
             function metricBox(label, value) {
                 return (
                     "<div class='card bg-secondary-subtle text-dark rounded-3 h-100'>" +
@@ -311,8 +373,10 @@
                     "</div>"
                 );
             }
-
-            /* Vasen: pienellä näytöllä 2×2 (Season/Episode/Runtime/Air date), Rating alle täyslevyisenä; md+: pino */
+            /* Vasen sarake:
+            - pienellä näytöllä 2×2 ruudukko (Season/Episode/Runtime/Air date)
+            - Rating alle koko leveydelle
+            - md+ näyttö: kortit pinoutuvat pystysuuntaan */
             var leftCol =
                 "<div class='row g-2'>" +
                     "<div class='col-6 col-md-12'>" + metricBox("Season",  season)  + "</div>" +
@@ -322,7 +386,7 @@
                     "<div class='col-12'>" + metricBox("Rating", rating)  + "</div>" +
                 "</div>";
 
-            /* Oikea sarake: Summary-kortti (otsikko uppercase, teksti pieni) */
+            // Oikea sarake: Summary-kortti
             var rightCol =
             "<div class='card bg-info-subtle text-dark h-100 rounded-3'>" +
                 "<div class='card-body pt-3'>" +
@@ -331,19 +395,20 @@
                 "</div>" +
             "</div>";
 
-            /* 30/70-jako md+:na (col-md-4 / col-md-8), pienellä pinoutuu */ 
+            // Kaksi saraketta: md+ = 30/70, pienellä pinoutuu 
             var twoColumns =
                 "<div class='row g-3 align-items-stretch'>" +
                     "<div class='col-12 col-md-4'>" + leftCol  + "</div>" +
                     "<div class='col-12 col-md-8'>" + rightCol + "</div>" +
                 "</div>";
-
+            // Rakenna modalin runko: mahdollinen kuva yläreunaan + kaksi saraketta alle
             bodyEl.innerHTML =
                 (imgSrc ? "<img src='" + imgSrc + "' alt='Episode image' class='img-fluid rounded mb-3'>" : "") +
                 twoColumns;
         })
 
         .catch(function () {
+            // Yleinen virheviesti
             titleEl.textContent = "Episode";
             bodyEl.innerHTML = "<div class='alert alert-warning'>Failed to load episode details.</div>";
         });

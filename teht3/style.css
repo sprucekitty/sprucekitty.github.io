@@ -1,0 +1,215 @@
+:root{
+--orbitron: "Orbitron", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+/* ettei ankkuri jää navbarin alle */
+section[id] { scroll-margin-top: 5rem; }
+
+/* Vaikuttaa: <nav class="navbar navbar-dark ..."> */
+.navbar.navbar-dark{
+  --bs-navbar-color: #ff9966;           /* linkkien normaali väri */
+  --bs-navbar-hover-color: #fff;        /* hover (voit käyttää #fff jos haluat) */
+  --bs-navbar-active-color: #ff9966;    /* aktiivinen/focus */
+  --bs-navbar-brand-color: #fff;        /* brand-teksti */
+  --bs-navbar-brand-hover-color: #fff;
+}
+
+/* Navbar "logo" (brand) with Orbitron */
+.navbar-brand {
+font-family: var(--orbitron);
+  font-weight: 600;
+}
+
+/* Täyslevyinen hero kuvan ja tummuvan overlayn kanssa */
+.hero{
+    width: 100%;           
+    min-height: 80vh;                  
+    padding: 3rem 0;        
+    display: flex;
+    align-items: center; 
+    color: #fff;
+    background-color: #002b36;          
+    /* kuva + overlay */
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.25) 0%,
+        rgba(0,0,0,0.35) 55%,
+        #002b36 100%
+    ),
+    url("photos/pexels-jacub-gomez-447561-1142950.jpg") center / cover no-repeat;
+}
+
+.hero .container{
+  text-align: center;           /* otsikko + ingressi keskelle vaakasuunnassa */
+}
+
+/* Hero nuolipainike */
+.hero{ position: relative; }    /* nuolen sijoittelua varten */
+
+.hero-scroll{
+    position: absolute;
+    left: 50%;
+    bottom: 1rem;
+    transform: translateX(-50%);
+    z-index: 2;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px; height: 42px;
+
+    color: #fff;          
+    background: #002b36;
+    border: 2px solid rgba(255,255,255,255);
+    border-radius: 999px;
+    text-decoration: none;
+
+    transition: background-color .2s ease, transform .15s ease;
+    /* kevyt “hengitys” */
+    animation: hero-bob 1.6s ease-in-out infinite alternate;
+    }
+.hero-scroll:hover,
+.hero-scroll:focus-visible{
+    background: rgba(255,255,255,.18);
+    outline: 0;
+    transform: translateX(-50%) translateY(-2px);
+}
+@keyframes hero-bob{
+    from { transform: translateX(-50%) translateY(0); }
+    to   { transform: translateX(-50%) translateY(-4px); }
+}
+/* Kunnioita “vähennä animaatioita” -asetusta */
+@media (prefers-reduced-motion: reduce){
+    .hero-scroll{ animation: none; }
+}
+
+/* Full-width image band (same logic as hero/prefooter) */
+.break-band{
+    width: 100%;
+    min-height: 80vh;                              
+    padding: 3rem 0;                               
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;                                   
+    background-color: #002b36;                     
+    background:                           
+    linear-gradient(
+        to bottom,
+        #002b36 0%,
+        rgba(0,43,54,0.55) 20%,
+        rgba(0,43,54,0.30) 50%,
+        rgba(0,43,54,0.55) 80%,
+        #002b36 100%
+    ),
+    url("photos/pexels-miriamespacio-2694037.jpg") center / cover no-repeat;  /* your image */
+}
+
+/* Pre-footer -kuvakaistale */
+.prefooter-band{
+    width: 100%;
+    min-height: 100vh;              
+    padding: 3rem 0;               
+    display: flex;
+    align-items: center;            
+    justify-content: center;        
+    color: #fff;
+    background-color: #002b36;    
+    background:
+    linear-gradient(
+        to top,
+        rgba(0, 43, 54, 0.20) 0%,
+        rgba(0, 43, 54, 0.65) 80%,
+        #002b36 100%
+    ),
+    url("photos/pexels-lexx-9957041.jpg") center / cover no-repeat;  
+}
+
+/* Nappien teksti */
+.btn-primary{
+    --bs-btn-color: #111;
+}
+
+/* Linkit tummalla taustalla */
+a { color: #b58900; }
+a:hover { color: #fff; text-decoration: underline; }
+
+/* prefooterin ja footerin asemointi */
+footer{ margin-top: 0; }
+
+/* otsikoiden fontti */
+h1, h2, h3, h4, h5, h6,
+.section-title,
+.modal-title {
+    font-family: var(--orbitron);
+    font-weight: 700;
+}
+
+/* H1 herossa */
+h1 {
+    letter-spacing: 0.04em;
+    font-size: 2.4rem;
+    line-height: 1.15;
+}
+@media (min-width: 768px) { h1 { font-size: 3rem; } }
+@media (min-width: 1200px){ h1 { font-size: 3.4rem; } }
+
+/* Isompi fontti jaksolistalle (accordion-body) */
+.accordion-body {
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    font-size: 1.2rem;   /* ~17px; säädä makuun 1.1–1.2rem */
+    line-height: 1.4;
+}
+/* Isompi fontti kausiotsikoihin (accordion-button) */
+.accordion-button {
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    font-size: 1.4rem;   /* ~17px; säädä makuun 1.1–1.2rem */
+    line-height: 1.4;
+}
+/* Accordion-item taustasta läpinäkyvämmän oloinen kuin Solarissa */
+.accordion-item{ background: transparent; }
+
+/* Osio-otsikot (H2) */
+.section-title {
+    font-weight: 700;
+    letter-spacing: 0.04em;   
+    line-height: 1.2;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+    .section-title { font-size: 2rem; } /* ~32px tablet+ */
+}
+
+/* modal-otsikko */
+.modal-title{
+    font-weight:700;
+    letter-spacing:0.04em;
+    font-size:1.5rem;
+}
+@media (min-width:768px){
+    .modal-title{ font-size:1.75rem; }
+}
+
+/* Episodi-metriikat modaalissa: otsikko UPPERCASE, arvo pienellä */
+.metric-label {
+    text-transform: uppercase;
+    opacity: 0.75;
+    font-weight: 600;
+    font-size: 0.8rem;   /* pieni label */
+}
+.metric-value {
+    font-size: 0.9rem;   /* pieni, yhtenäinen arvo */
+}
+
+/* Accordion kavennus keskelle isoilla näytöillä */
+.narrow {
+    max-width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+}
+

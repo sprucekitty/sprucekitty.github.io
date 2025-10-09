@@ -1,6 +1,3 @@
-:root{
---orbitron: "Orbitron", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-}
 
 html { scroll-behavior: smooth; }
 /* ettei ankkuri jää navbarin alle */
@@ -143,7 +140,7 @@ footer{ margin-top: 0; }
 h1, h2, h3, h4, h5, h6,
 .section-title,
 .modal-title {
-    font-family: var(--orbitron);
+    font-family: "Orbitron", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-weight: 700;
 }
 
@@ -211,5 +208,9 @@ h1 {
     max-width: 880px;
     margin-left: auto;
     margin-right: auto;
+}
+
+:root{
+  --bs-body-font-size: 1.125rem; /* 18px */
 }
 

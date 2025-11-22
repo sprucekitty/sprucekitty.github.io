@@ -20,7 +20,7 @@
       --color-card: #FFFFFF;
       --color-border: #D0D4DD;
       --shadow-soft: 0 4px 10px rgba(0, 0, 0, 0.06);
-      --radius-card: 16px;
+      --radius-card: 10px;
     }
 
     * {
@@ -142,7 +142,13 @@
       text-align: center;
       height: 100%;
       padding: 24px;
-      gap: 24px;
+      padding-top: 60px;
+      gap: 16px;
+    }
+
+    .splash-img {
+      width: 200px;
+      height: auto;
     }
 
     .splash-logo {
@@ -193,10 +199,11 @@
       margin-top: 8px;
     }
 
+
     .btn-large {
       width: 100%;
       padding: 12px;
-      border-radius: 999px;
+      border-radius: 10px;
       border: none;
       font-size: 16px;
       font-weight: 600;
@@ -244,7 +251,7 @@
 
     .field-row button {
       padding: 8px 12px;
-      border-radius: 999px;
+      border-radius: 10px;
       border: 1px solid var(--color-secondary);
       background: #FFFFFF;
       font-size: 14px;
@@ -264,7 +271,7 @@
     .btn {
       flex: 1;
       padding: 10px;
-      border-radius: 999px;
+      border-radius: 10px;
       border: none;
       font-size: 14px;
       cursor: pointer;
@@ -343,8 +350,8 @@
 
     /* Yksittäinen nappi */
     .chip {
-      padding: 6px 12px;
-      border-radius: 999px;
+      padding: 4px 12px;
+      border-radius: 100px;
       border: 1px solid var(--color-border);
       background: #F2F4FA;
       font-size: 13px;
@@ -361,13 +368,12 @@
       font-weight: 600;
     }
 
-/* Karusellirivi: ei taitu, vaan skrollaa sivusuunnassa */
-.chip-row.scrollable {
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  padding-bottom: 4px;
-}
-
+    /* Karusellirivi: ei taitu, vaan skrollaa sivusuunnassa */
+    .chip-row.scrollable {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    }
 
     .horizontal-scroll {
       display: flex;
@@ -380,7 +386,7 @@
       min-width: 160px;
       max-width: 180px;
       height: 120px;
-      border-radius: 14px;
+      border-radius: 10px;
       border: 1px solid var(--color-border);
       background: var(--color-card);
       padding: 8px;
@@ -399,7 +405,7 @@
 
     .media-area {
       height: 180px;
-      border-radius: 20px;
+      border-radius: 10px;
       background: linear-gradient(135deg, #3AA8C1, #A13E9F);
       border: 1px solid #C0C9D6;
       display: flex;
@@ -434,7 +440,7 @@
       border-bottom: 1px solid #D4D8E3;
       margin-bottom: 8px;
       background: var(--color-card);
-      border-radius: 14px;
+      border-radius: 10px;
       box-shadow: var(--shadow-soft);
       overflow: hidden;
     }
@@ -464,7 +470,7 @@
     }
 
     .accordion-item {
-      border-radius: 12px;
+      border-radius: 10px;
       border: 1px solid var(--color-border);
       margin-bottom: 6px;
       background: var(--color-card);
@@ -541,7 +547,7 @@
 
     .modal {
       background: var(--color-card);
-      border-radius: 16px;
+      border-radius: 10px;
       padding: 12px;
       width: 90%;
       max-height: 80%;
@@ -582,7 +588,7 @@
 
     .modal-footer button {
       padding: 8px 12px;
-      border-radius: 999px;
+      border-radius: 10px;
       border: none;
       background: var(--color-primary);
       color: #FFFFFF;
@@ -628,17 +634,7 @@
       scrollbar-width: none;        /* Firefox */
     }
 
-    .splash-screen {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-top: 80px;
-    }
 
-    .splash-img {
-      width: 200px;
-      height: auto;
-    }
 
     .brand-title {
       text-align: center;
@@ -646,64 +642,136 @@
       font-size: 40px;
     }
 
+    .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    }
+
+    .checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    }
+
+/* Profiilin header (avatar + nimi + tilausinfo) */
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.profile-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-name {
+    font-family: "Nunito", system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* Profiilin valikkonapit */
+
+.profile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-menu-item {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.profile-menu-item:hover {
+  background: #f7f7f7;
+}
+
+.profile-menu-label {
+  text-align: left;
+}
+
+.profile-menu-arrow {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Profiilin header ylhäällä */
+
+.profile-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 16px 0 24px;
+  text-align: center;
+}
+
+.profile-subinfo {
+    font-family: "Nunito", system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.summary-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 16px 0 24px;
+  text-align: center;
+}
+
+.summary-text {
+    font-family: "Nunito", system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.summary-info {
+    font-family: "Nunito", system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.info-text {
+    font-family: "Nunito", system-ui, sans-serif;
+    font-size: 12px;
+    color: #888;
+    margin-top: 6px;
+    margin-left: 6px;
+}
+
 
   </style>
 </head>
 <body>
   <div class="app">
     <div class="top-bar" id="topBarTitle">OpinDo Tervetuloa</div>
-
-    <!-- Haku modal -->
-    <div class="modal-backdrop" id="searchModalBackdrop">
-      <div class="modal">
-        <div class="modal-header">
-          <h2>Haku</h2>
-          <button class="modal-close" onclick="closeSearch()">×</button>
-        </div>
-        <div class="modal-content">
-          <div class="field-row">
-            <input id="searchInput" type="text" placeholder="Hae aihetta, kurssia tai sisältöä">
-            <button class="btn-primary" onclick="startSearch()">Hae</button>
-          </div>
-
-          <h2 class="section-title">Suodattimet</h2>
-          <p class="card-meta">Voit yhdistellä useita suodattimia. Aktiivinen suodatin korostuu.</p>
-
-          <div class="chip-row scrollable">
-            <button class="chip">Uutuudet</button>
-            <button class="chip">Sinulle suositellut</button>
-            <button class="chip">Suosituimmat</button>
-            <button class="chip">Ohjeet</button>
-          </div>
-          <div class="chip-row scrollable">
-            <button class="chip">Leuka</button>
-            <button class="chip">Jalka</button>
-            <button class="chip">Nilkka</button>
-            <button class="chip chip-active">Kaularanka</button>
-            <button class="chip">Olkapää</button>
-            <button class="chip">Polvi</button>
-            <button class="chip">Lonkka</button>
-          </div>
-
-          <div class="chip-row scrollable">
-            <button class="chip">Haastattelu</button>
-            <button class="chip chip-active">Tutkiminen</button>
-            <button class="chip">Interventio</button>
-            <button class="chip">Hoitotekniikat</button>
-            <button class="chip">Harjoitusohjelmat</button>
-          </div>
-
-          <div class="chip-row scrollable">
-            <button class="chip">Kurssi</button>
-            <button class="chip">Moduuli</button>
-            <button class="chip">Teksti</button>
-            <button class="chip chip-active">Video</button>
-            <button class="chip">Podcast</button>
-            <button class="chip">Dokumentti</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Teksti modal -->
     <div class="modal-backdrop" id="textModalBackdrop">
@@ -756,7 +824,7 @@
             <div>Video toistuisi tässä.</div>
           </div>
           <div class="icon-row">
-            <span>♡</span>
+            <span>👍</span>
             <span>📋</span>
           </div>
           <p class="card-meta" id="videoModalMeta">Kesto: 5 min • Sisältötyyppi: Video</p>
@@ -773,15 +841,13 @@
       <div class="splash-screen">
         <img src="opindo-logo3.png" class="splash-img">
         <div>
-          <div class="splash-title"></div>
+          <div class="splash-title">Tervetuloa</div>
           <p class="splash-subtitle">
             Käytännönläheistä oppimista ajasta ja paikasta riippumatta.
           </p>
         </div>
         <div class="splash-button-area">
-          <button class="btn-large" onclick="showScreen('screen-login', 'Kirjaudu sisään')">
-            Aloita
-          </button>
+          <button class="btn-large" onclick="showScreen('screen-login', 'Kirjaudu sisään')">Aloita</button>
         </div>
         <p class="splash-footnote">
           Tämä on varhainen rautalankamalli. Testaamme palvelun rakennetta ja toiminnallisuutta, emme lopullista ulkoasua tai sisältöä.
@@ -792,13 +858,14 @@
     <!-- Kirjautuminen -->
     <div class="screen" id="screen-login">
       <h1>Kirjaudu sisään</h1>
+      <p>Kirjaudu sisään käyttääksesi sovellusta.</p>
       <div class="field">
-        <label>Sähköposti</label>
-        <input type="email">
+        <label></label>
+        <input type="email" placeholder="esimerkki@osoite.fi">
       </div>
       <div class="field">
-        <label>Salasana</label>
-        <input type="password">
+        <label></label>
+        <input type="password" placeholder="Salasana">
       </div>
       <div class="button-row">
         <button class="btn btn-primary" onclick="showScreen('screen-survey','Aloituskysely')">Kirjaudu</button>
@@ -809,21 +876,22 @@
     <!-- Luo tili -->
     <div class="screen" id="screen-signup">
       <h1>Luo tili</h1>
-      <p>Syötä sähköposti ja aseta salasana.</p>
+      <p>Luo tili syöttömällä sähköposti ja asettamalla salasana.</p>
       <div class="field">
-        <label>Sähköposti</label>
+        <label></label>
         <input type="email" placeholder="esimerkki@osoite.fi">
       </div>
       <div class="field">
-        <label>Salasana</label>
+        <label></label>
         <input type="password" placeholder="Salasana">
       </div>
       <div class="field">
-        <label>Toista salasana</label>
+        <label></label>
         <input type="password" placeholder="Toista salasana">
       </div>
       <div class="button-row">
-        <button class="btn btn-primary" onclick="showScreen('screen-login', 'Kirjaudu sisään')">Seuraava</button>
+        <button class="btn btn-primary" onclick="showScreen('screen-login', 'Kirjaudu sisään')">Luo tili</button>
+        <button class="btn btn-secondary" onclick="showScreen('screen-login','Kirjaudu sisään')">Palaa</button>
       </div>
       <p style="margin-top:16px; font-size:13px;">Onko sinulla jo tili? <a href="#" onclick="showScreen('screen-login','Kirjaudu sisään'); return false;">Kirjaudu sisään</a></p>
     </div>
@@ -831,49 +899,43 @@
     <!-- Aloituskysely -->
     <div class="screen" id="screen-survey">
       <h1>Aloituskysely</h1>
-      <p>Autetaan OpinDoa ehdottamaan sopivia sisältöjä.</p>
+      <p>Auta OpinDoa ehdottamaan sinulle sisältöjä kertomalla itsestäsi ja tavoitteistasi.</p>
 
-      <div class="field">
-        <label>Rooli</label>
-        <select>
-          <option>Opiskelija</option>
-          <option>Uran alku</option>
-          <option>Kokenut</option>
-        </select>
-      </div>
+        <div class="field">
+            <label>Taso</label>
+            <div class="checkbox-group">
+                <label class="checkbox-item"><input type="checkbox"> <span>Opiskelija</span></label>
+                <label class="checkbox-item"><input type="checkbox"> <span>Uran alku</span></label>
+                <label class="checkbox-item"><input type="checkbox"> <span>Kokenut</span></label>
+            </div>
+        </div>
 
-      <div class="field">
-        <label>Tavoite</label>
-        <select>
-          <option>Tentti</option>
-          <option>Nopea sukellus</option>
-          <option>Oppia uutta</option>
-          <option>Kertaus</option>
-        </select>
-      </div>
+        <div class="field">
+            <label>Tavoite</label>
+            <div class="checkbox-group">
+                <label class="checkbox-item"><input type="checkbox"> <span>Kurssi</span></label>
+                <label class="checkbox-item"><input type="checkbox"> <span>Tentti sparraus</span></label>
+                <label class="checkbox-item"><input type="checkbox"> <span>Nopea sukellus</span></label>
+                <label class="checkbox-item"><input type="checkbox"> <span>Oppia uutta</span></label>
+                <label class="checkbox-item"><input type="checkbox"> <span>Kertaus</span></label>
+                <label class="checkbox-item"><input type="checkbox"> <span>Täsmähaku</span></label>
+            </div>
+        </div>
 
-      <div class="field">
-        <label>Ensisijainen käyttötapa</label>
-        <select>
-          <option>Kurssi</option>
-          <option>Täsmähaku</option>
-        </select>
-      </div>
+        <div class="field">
+            <label>Tavoiteopiskeluaika per viikko</label>
+            <div class="checkbox-group">
+                <label class="checkbox-item"><input type="checkbox"> <span>10 min</span></label>
+                <label class="checkbox-item"><input type="checkbox"> <span>10–30 min</span></label>
+                <label class="checkbox-item"><input type="checkbox"> <span>30–60 min</span></label>
+                <label class="checkbox-item"><input type="checkbox"> <span>Yli tunti</span></label>
+            </div>
+        </div>
 
-      <div class="field">
-        <label>Tavoiteaika per viikko</label>
-        <select>
-          <option>10 min</option>
-          <option>10 - 30 min</option>
-          <option>30 - 60 min</option>
-          <option>Yli tunti</option>
-        </select>
-      </div>
-
-      <div class="button-row">
-        <button class="btn btn-secondary" onclick="showScreen('screen-tutorial','Opastus')">Ohita</button>
-        <button class="btn btn-primary" onclick="showScreen('screen-tutorial','Opastus')">Tallenna ja jatka</button>
-      </div>
+        <div class="button-row">
+            <button class="btn btn-primary" onclick="showScreen('screen-tutorial','Opastus')">Tallenna ja jatka</button>
+            <button class="btn btn-secondary" onclick="showScreen('screen-tutorial','Opastus')">Ohita</button>
+        </div>
     </div>
 
     <!-- Opastus -->
@@ -904,31 +966,24 @@
     <!-- Oma sivu -->
     <div class="screen" id="screen-home">
       <h1>Oma sivu</h1>
-
-      <div class="card">
-        <div class="card-row">
-          <div class="avatar-placeholder"></div>
-          <div style="flex:1;">
-            <div class="card-title" style="margin-bottom:4px; color: var(--color-primary);">Hei!</div>
-            <div class="card-meta">Viikkotavoite: 30 - 60 min</div>
-            <div class="card-meta">Tällä viikolla: 20 min</div>
-            <div class="card-meta">Suoritettuja kursseja: 2 • Avoimia: 3</div>
-          </div>
+        <div class="summary-top">
+            <div class="summary-text">Hei, Mikko!</div>
+            <div class="summary-info">
+                Tällä viikolla: 20 min • Tavoite: 30 - 60 min<br>
+                Suoritettuja kursseja: 2 • Kesken: 3
+            </div>
         </div>
-      </div>
 
-      <h2 class="section-title">Mitä haluaisit oppia tänään?</h2>
-      <div class="card">
-        <div class="field">
-          <input type="text" placeholder="Kirjoita aihe, tentti tai osa-alue. Esim. olkapää, tentti, harjoitusohjelmat">
-        </div>
-        <p class="card-meta">
-          Esimerkki: Jos kirjoitat “olkapää”, järjestelmä voisi suositella sinulle olkapään tutkimisen kurssia ja siihen liittyviä videoita.
+    <h2 class="section-title">Mitä haluaisit oppia tänään?</h2>
+    <div class="field">
+        <input type="text" placeholder="Kirjoita kysymys tai aihe, josta haluaisin oppia lisää.">
+        <p class="info-text">
+        Kysy OpinDoMentorilta, joka vastaa kysymykseesi ja suosittelee sinulle sopivaa kurssia ja aiheeseen liittyviä videoita.
         </p>
-      </div>
+    </div>
 
-      <h2 class="section-title">Jatka katsomista</h2>
-      <div class="horizontal-scroll">
+    <h2 class="section-title">Jatka katsomista</h2>
+    <div class="horizontal-scroll">
         <div class="carousel-card" onclick="showScreen('screen-course','📚 Kurssit')">
           <div class="carousel-thumb"></div>
           <div class="card-title" style="font-size:13px;">Kaularangan tutkiminen</div>
@@ -946,7 +1001,7 @@
         </div>
       </div>
 
-      <h2 class="section-title">Suosikit</h2>
+    <h2 class="section-title">Suosikit</h2>
       <div class="horizontal-scroll">
         <div class="carousel-card">
           <div class="carousel-thumb"></div>
@@ -993,13 +1048,12 @@
     <div class="screen" id="screen-courses">
       <h1>Kurssit</h1>
 
+
       <div class="field-row">
         <input id="coursesSearchInput" type="text" placeholder="Etsi aihetta, kurssia tai sisältöä">
         <button class="btn-primary" onclick="startLibrarySearch()">Hae</button>
       </div>
-
       <h2 class="section-title">Suodattimet</h2>
-      <p class="card-meta">Voit yhdistellä useita suodattimia. Aktiivinen suodatin korostuu.</p>
 
       <div class="chip-row scrollable">
         <button class="chip">Uutuudet</button>
@@ -1035,7 +1089,7 @@
         <button class="chip">Dokumentti</button>
       </div>
 
-      <h2 class="section-title">Kurssit</h2>
+      <h2 class="section-title">Kaikki kurssit</h2>
 
       <div class="card card-row" onclick="showScreen('screen-course','📚 Kurssit')">
         <div class="thumb"></div>
@@ -1044,7 +1098,7 @@
           <div class="card-meta">Eteneminen: <span style="color: var(--color-secondary);">70 %</span></div>
         </div>
         <div class="card-actions">
-          <span>♡</span>
+          <span>👍</span>
           <span>📋</span>
         </div>
       </div>
@@ -1056,11 +1110,87 @@
           <div class="card-meta">Eteneminen: 0 %</div>
         </div>
         <div class="card-actions">
-          <span>♡</span>
+          <span>👍</span>
           <span>📋</span>
         </div>
       </div>
+
+    <h2 class="section-title">Opastus</h2>
+
+      <div class="card card-row" onclick="openVideoModal('Näin käytät OpinDoa','Kesto: 3 min • Opastusvideo','Video esittelee OpinDon perusrakenteen ja navigoinnin.')">
+        <div class="thumb"></div>
+        <div style="flex:1;">
+          <div class="card-title">Näin käytät OpinDoa</div>
+          <div class="card-meta">Lyhyt esittely palvelun rakenteesta.</div>
+        </div>
+        <div class="card-actions">
+          <span>👍</span>
+          <span>📋</span>
+        </div>
+      </div>
+
+      <div class="card card-row" onclick="openVideoModal('Miten löydät kurssit ja sisällöt','Kesto: 4 min • Opastusvideo','Video näyttää, miten käytät kurssikirjastoa, hakua ja suodattimia.')">
+        <div class="thumb"></div>
+        <div style="flex:1;">
+          <div class="card-title">Miten löydät kurssit ja sisällöt</div>
+          <div class="card-meta">Katsaus hakutoimintoihin ja kurssikirjastoon.</div>
+        </div>
+        <div class="card-actions">
+          <span>👍</span>
+          <span>📋</span>
+        </div>
+      </div>
+
     </div>
+
+
+<!-- Kurssikirjasto – haku tyhjä -->
+    <div class="screen" id="screen-haku">
+      <h1>Haku</h1>
+        <div class="field-row">
+            <input id="coursesSearchInput" type="text" placeholder="Etsi aihetta, kurssia tai sisältöä">
+            <button class="btn-primary" onclick="startLibrarySearch()">Hae</button>
+        </div>
+
+      <h2 class="section-title">Suodattimet</h2>
+      <div class="chip-row scrollable">
+        <button class="chip">Uutuudet</button>
+        <button class="chip">Sinulle suositellut</button>
+        <button class="chip">Suosituimmat</button>
+        <button class="chip">Ohjeet</button>
+      </div>
+
+      <div class="chip-row scrollable">
+        <button class="chip">Leuka</button>
+        <button class="chip">Jalka</button>
+        <button class="chip">Nilkka</button>
+        <button class="chip">Kaularanka</button>
+        <button class="chip">Olkapää</button>
+        <button class="chip">Polvi</button>
+        <button class="chip">Lonkka</button>
+      </div>
+
+      <div class="chip-row scrollable">
+        <button class="chip">Haastattelu</button>
+        <button class="chip">Tutkiminen</button>
+        <button class="chip">Interventio</button>
+        <button class="chip">Hoitotekniikat</button>
+        <button class="chip">Harjoitusohjelmat</button>
+      </div>
+
+      <div class="chip-row scrollable">
+        <button class="chip ">Kurssi</button>
+        <button class="chip">Moduuli</button>
+        <button class="chip">Teksti</button>
+        <button class="chip">Video</button>
+        <button class="chip">Podcast</button>
+        <button class="chip">Dokumentti</button>
+      </div>
+
+      <h2 class="section-title">Hakutulokset</h2>
+      
+    </div>
+
 
     <!-- Kurssikirjasto – haun tulos -->
     <div class="screen" id="screen-courses-results">
@@ -1107,8 +1237,6 @@
       </div>
 
       <h2 class="section-title">Hakutulokset</h2>
-      <p class="card-meta">Näytetään tulokset haulle ”kaularanka”. Voit tarkentaa suodatuksilla.</p>
-
       <div class="card card-row" onclick="openVideoModal('Video: Kaularangan liikeratatesti','Kesto: 8 min • Video','Esimerkkivideo kaularangan liikeratatestistä.')">
         <div class="thumb"></div>
         <div style="flex:1;">
@@ -1116,7 +1244,7 @@
           <div class="card-meta">Video • Kurssi: Kaularangan tutkiminen</div>
         </div>
         <div class="card-actions">
-          <span>♡</span>
+          <span>👍</span>
           <span>📋</span>
         </div>
       </div>
@@ -1128,11 +1256,12 @@
           <div class="card-meta">Podcast • Kurssi: Tuki- ja liikuntaelimistön perusteet</div>
         </div>
         <div class="card-actions">
-          <span>♡</span>
+          <span>👍</span>
           <span>📋</span>
         </div>
       </div>
     </div>
+    
 
     <!-- Kurssisivu -->
     <div class="screen" id="screen-course">
@@ -1232,80 +1361,59 @@
     </div>
 
     <!-- Profiili -->
+
+
+    
     <div class="screen" id="screen-profile">
       <h1>Profiili</h1>
-
-      <div class="avatar-placeholder"></div>
-
-      <div class="profile-section">
-        <h3>Henkilötiedot</h3>
-        <div class="field">
-          <label>Nimi</label>
-          <input type="text" placeholder="Mikko Oppi">
+       <!-- Profiili-header ylhäällä -->
+        <div class="profile-top">
+            <div class="avatar-placeholder"></div>
+            <div class="profile-name">Mikko Oppi</div>
+            <div class="profile-subinfo">
+                Tilaus: aktiivinen<br>
+                Seuraava laskutus: 15.12.2025
+            </div>
         </div>
-        <div class="field">
-          <label>Sähköposti</label>
-          <input type="email" placeholder="esimerkki@osoite.fi">
-        </div>
-        <div class="field">
-          <label>Salasanan vaihto</label>
-          <input type="password" placeholder="Uusi salasana">
-        </div>
-
-      </div>
-
-      <div class="profile-section">
-        <h3>Preferenssit</h3>
-        <div class="field">
-          <label>Rooli</label>
-          <select>
-            <option>Opiskelija</option>
-            <option>Uran alku</option>
-            <option>Kokenut</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Kielivalinta</label>
-          <select>
-            <option>Suomi</option>
-            <option>Englanti</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Tavoite</label>
-          <select>
-            <option>Tentti</option>
-            <option>Nopea sukellus</option>
-            <option>Oppia uutta</option>
-            <option>Kertaus</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Ensisijainen käyttötapa</label>
-          <select>
-            <option>Kurssi</option>
-            <option>Täsmähaku</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Tavoiteaika per viikko</label>
-          <select>
-            <option>10 min</option>
-            <option>10 - 30 min</option>
-            <option>30 - 60 min</option>
-            <option>Yli tunti</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="profile-section">
-        <h3>Tilaus</h3>
-        <p class="card-meta">Tilaus: aktiivinen • Seuraava laskutus: 15.12.2025</p>
-      </div>
-
-      <div class="button-row">
-        <button class="btn btn-primary">Tallenna muutokset</button>
-        <button class="btn btn-secondary">Kirjaudu ulos</button>
+      
+        <!-- Profiilin valikkonapit -->
+      <div class="profile-menu">
+        <button class="profile-menu-item">
+            <span class="profile-menu-label">Muuta tietoja</span>
+            <span class="profile-menu-arrow">›</span>
+        </button>
+        <button class="profile-menu-item">
+            <span class="profile-menu-label">Kielivalinta</span>
+            <span class="profile-menu-arrow">›</span>
+        </button>
+        <button class="profile-menu-item">
+            <span class="profile-menu-label">Yksilöinti</span>
+            <span class="profile-menu-arrow">›</span>
+        </button>
+        <button class="profile-menu-item">
+            <span class="profile-menu-label">Turvallisuus</span>
+            <span class="profile-menu-arrow">›</span>
+        </button>
+        <button class="profile-menu-item">
+            <span class="profile-menu-label">Saavutettavuus</span>
+            <span class="profile-menu-arrow">›</span>
+        </button>
+        <button class="profile-menu-item">
+            <span class="profile-menu-label">Tilaushistoria</span>
+            <span class="profile-menu-arrow">›</span>
+        </button>
+        <button class="profile-menu-item">
+            <span class="profile-menu-label">Maksutapa</span>
+            <span class="profile-menu-arrow">›</span>
+        </button>
+        <button class="profile-menu-item">
+            <span class="profile-menu-label">Tukikeskus</span>
+            <span class="profile-menu-arrow">›</span>
+        </button>       
+        <button class="profile-menu-item">
+            <span class="profile-menu-label">Kirjaudu ulos</span>
+            <span class="profile-menu-arrow">›</span>
+        </button>  
       </div>
     </div>
 
@@ -1315,7 +1423,7 @@
         <span class="tab-button-icon">🏠</span>
         <span>Oma sivu</span>
       </div>
-      <div class="search-button" onclick="openSearch()">
+      <div class="tab-button" data-target="screen-haku" onclick="switchTab(this)">
         <span class="tab-button-icon">🔍</span>
         <span>Haku</span>
       </div>

@@ -6,4 +6,4 @@ Digitekniikat opintojakso:
 
 Digitaalisen palvelun protoilu opintojakso:
 - Lo-Fi prototyypppi: https://sprucekitty.github.io/OpinDo/proto1
-- Lo-Fi prototyypppi väreillä: https://sprucekitty.github.io/OpinDo/proto2
+- Lo-Fi prototyypppi (päivitetty): https://sprucekitty.github.io/OpinDo/proto2

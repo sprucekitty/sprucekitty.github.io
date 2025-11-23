@@ -5,661 +5,746 @@
   <title>OpinDo Wireframe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Fonts: Poppins (headings), Nunito (body) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;1,700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --color-h2: #3AA8C1;
-      --color-secondary: #1E7D8C;
-      --color-primary: #A13E9F;
-      --color-text-main: #1F1F1F;
-      --color-bg: #E9EFF2;
-      --color-card: #FFFFFF;
-      --color-border: #D0D4DD;
-      --shadow-soft: 0 4px 10px rgba(0, 0, 0, 0.06);
-      --radius-card: 16px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 16px;
-      background: var(--color-bg);
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 16px;
-      color: var(--color-text-main);
-    }
-
-    .app {
-      width: 420px;
-      max-width: 100%;
-      height: 780px;
-      max-height: 100vh;
-      background: var(--color-bg);
-      border-radius: 28px;
-      border: 1px solid #B8BECA;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
-    }
-
-    .top-bar {
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 1px solid #D8DDE6;
-      background: #FFFFFF;
-      font-size: 14px;
-      font-weight: 600;
-      padding: 0 8px;
-      text-align: center;
-      font-family: "Poppins", system-ui, sans-serif;
-      color: var(--color-text-main);
-    }
-
-    .screen {
-      display: none;
-      flex: 1;
-      overflow-y: auto;
-      padding: 12px 12px 64px;
-    }
-
-    .screen.active {
-      display: block;
-    }
-
-    /* Typografia */
-
-    h1 {
-      font-family: "Poppins", system-ui, sans-serif;
-      font-size: 40px;
-      font-weight: 700;
-      margin: 0 0 8px;
-      background: linear-gradient(135deg, #3AA8C1, #A13E9F);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    h2 {
-      font-family: "Poppins", system-ui, sans-serif;
-      font-size: 24px;
-      font-weight: 600;
-      margin: 0 0 6px;
-      color: var(--color-h2);
-    }
-
-    h3 {
-      font-family: "Nunito", system-ui, sans-serif;
-      font-size: 20px;
-      font-weight: 600;
-      margin: 0 0 8px;
-      color: var(--color-text-main);
-    }
-
-    p {
-      margin: 0 0 8px;
-      color: var(--color-text-main);
-      font-size: 16px;
-    }
-
-    .highlight {
-      font-family: "Nunito", system-ui, sans-serif;
-      font-style: italic;
-      font-weight: 700;
-      font-size: 18px;
-    }
-
-    .section-title {
-      font-family: "Nunito", system-ui, sans-serif;
-      font-size: 20px;          /* H3-tyyli */
-      font-weight: 600;
-      color: var(--color-secondary); /* #1E7D8C */
-      margin: 16px 0 8px;
-      text-transform: none;
-      letter-spacing: normal;
-    }
-
-    /* Aloitusnäkymä */
-
-    .splash-screen {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      height: 100%;
-      padding: 24px;
-      gap: 24px;
-    }
-
-    .splash-logo {
-      width: 96px;
-      height: 96px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, #3AA8C1, #A13E9F);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #FFFFFF;
-      font-family: "Poppins", system-ui, sans-serif;
-      font-weight: 700;
-      font-size: 22px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .splash-title {
-      font-family: "Poppins", system-ui, sans-serif;
-      font-size: 40px;
-      font-weight: 700;
-      margin-bottom: 4px;
-      background: linear-gradient(135deg, #3AA8C1, #A13E9F);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .splash-subtitle {
-      font-size: 16px;
-      color: var(--color-text-main);
-      max-width: 280px;
-      margin: 0 auto;
-    }
-
-    .splash-footnote {
-      font-size: 12px;
-      color: #888;
-      max-width: 280px;
-      margin: 0 auto;
-    }
-
-    .splash-button-area {
-      width: 100%;
-      max-width: 260px;
-      margin-top: 8px;
-    }
-
-    .btn-large {
-      width: 100%;
-      padding: 12px;
-      border-radius: 999px;
-      border: none;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      background: var(--color-primary);
-      color: #FFFFFF;
-      font-family: "Poppins", system-ui, sans-serif;
-      box-shadow: var(--shadow-soft);
-    }
-
-    /* Lomake-elementit */
-
-    .field {
-      margin-bottom: 12px;
-    }
-
-    .field label {
-      display: block;
-      font-size: 13px;
-      margin-bottom: 4px;
-      color: var(--color-text-main);
-    }
-
-    .field input,
-    .field select {
-      width: 100%;
-      padding: 8px 10px;
-      border-radius: 10px;
-      border: 1px solid var(--color-border);
-      font-size: 16px;
-      background: #FFFFFF;
-      font-family: "Nunito", system-ui, sans-serif;
-    }
-
-    .field-row {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-
-    .field-row input {
-      flex: 1;
-    }
-
-    .field-row button {
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--color-secondary);
-      background: #FFFFFF;
-      font-size: 14px;
-      cursor: pointer;
-      white-space: nowrap;
-      font-family: "Nunito", system-ui, sans-serif;
-      color: var(--color-secondary);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .button-row {
-      display: flex;
-      gap: 8px;
-      margin-top: 16px;
-    }
-
-    .btn {
-      flex: 1;
-      padding: 10px;
-      border-radius: 999px;
-      border: none;
-      font-size: 14px;
-      cursor: pointer;
-      font-family: "Poppins", system-ui, sans-serif;
-    }
-
-    .btn-primary {
-      background: var(--color-primary);
-      color: #FFFFFF;
-      box-shadow: var(--shadow-soft);
-      border: none;
-    }
-
-    .btn-secondary {
-      background: #FFFFFF;
-      color: var(--color-secondary);
-      border: 1px solid var(--color-secondary);
-    }
-
-    /* Kortit ja karusellit */
-
-    .card {
-      background: var(--color-card);
-      border-radius: var(--radius-card);
-      border: 1px solid var(--color-border);
-      padding: 10px;
-      margin-bottom: 8px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .card-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-    }
-
-    .thumb,
-    .carousel-thumb {
-      width: 100%;
-      height: 56px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #3AA8C1, #A13E9F);
-    }
-
-    .thumb {
-      width: 64px;
-      height: 40px;
-    }
-
-    .card-title {
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 2px;
-      color: var(--color-text-main);
-      font-family: "Poppins", system-ui, sans-serif;
-    }
-
-    .card-meta {
-      font-size: 13px;
-      color: #555;
-    }
-
-    .card-actions {
-      display: flex;
-      gap: 4px;
-      font-size: 16px;
-    }
-
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin: 8px 0;
-    }
-
-    .chip {
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--color-border);
-      font-size: 12px;
-      background: #F2F4FA;
-      color: var(--color-text-main);
-    }
-
-    .horizontal-scroll {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 4px;
-    }
-
-    .carousel-card {
-      min-width: 160px;
-      max-width: 180px;
-      height: 120px;
-      border-radius: 14px;
-      border: 1px solid var(--color-border);
-      background: var(--color-card);
-      padding: 8px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      font-size: 12px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .carousel-thumb {
-      margin-bottom: 4px;
-    }
-
-    /* Media area kurssisivulla */
-
-    .media-area {
-      height: 180px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #3AA8C1, #A13E9F);
-      border: 1px solid #C0C9D6;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 12px;
-      flex-direction: column;
-      text-align: center;
-      font-size: 14px;
-      color: #FFFFFF;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .media-placeholder-icon {
-      width: 48px;
-      height: 32px;
-      border-radius: 10px;
-      border: 2px solid #FFFFFF;
-      margin-bottom: 6px;
-    }
-
-    .media-type {
-      font-weight: 600;
-      margin-bottom: 2px;
-      font-family: "Poppins", system-ui, sans-serif;
-    }
-
-    /* Tabit */
-
-    .tabs {
-      display: flex;
-      border-bottom: 1px solid #D4D8E3;
-      margin-bottom: 8px;
-      background: var(--color-card);
-      border-radius: 14px;
-      box-shadow: var(--shadow-soft);
-      overflow: hidden;
-    }
-
-    .tab {
-      flex: 1;
-      text-align: center;
-      padding: 8px;
-      font-size: 13px;
-      cursor: pointer;
-      border-bottom: 2px solid transparent;
-      font-family: "Poppins", system-ui, sans-serif;
-      color: var(--color-text-main);
-    }
-
-    .tab.active {
-      border-bottom-color: var(--color-secondary);
-      font-weight: 600;
-      color: var(--color-secondary);
-      background: #F3FBFD;
-    }
-
-    /* Accordion */
-
-    .accordion {
-      margin-top: 8px;
-    }
-
-    .accordion-item {
-      border-radius: 12px;
-      border: 1px solid var(--color-border);
-      margin-bottom: 6px;
-      background: var(--color-card);
-      overflow: hidden;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .accordion-header {
-      padding: 8px 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      font-size: 14px;
-      font-family: "Poppins", system-ui, sans-serif;
-      color: var(--color-text-main);
-    }
-
-    .accordion-body {
-      border-top: 1px solid #E2E5F0;
-      padding: 8px 10px;
-      font-size: 14px;
-    }
-
-    .accordion-body .card {
-      margin-bottom: 6px;
-    }
-
-    /* Alanavigaatio */
-
-    .tabbar {
-      height: 56px;
-      border-top: 1px solid #D8DDE6;
-      background: #FFFFFF;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      padding-bottom: env(safe-area-inset-bottom);
-    }
-
-    .tab-button,
-    .search-button {
-      flex: 1;
-      text-align: center;
-      font-size: 11px;
-      padding-top: 4px;
-      cursor: pointer;
-      color: #7B8294;
-      font-family: "Nunito", system-ui, sans-serif;
-    }
-
-    .tab-button-icon {
-      font-size: 18px;
-      display: block;
-      margin-bottom: 2px;
-    }
-
-    .tab-button.active {
-      color: var(--color-secondary);
-      font-weight: 600;
-    }
-
-    /* Modaalit */
-
-    .modal-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.35);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 20;
-    }
-
-    .modal {
-      background: var(--color-card);
-      border-radius: 16px;
-      padding: 12px;
-      width: 90%;
-      max-height: 80%;
-      overflow-y: auto;
-      font-size: 14px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-
-    .modal-header h2 {
-      font-size: 24px;
-      margin: 0 0 6px;
-      color: var(--color-h2);
-    }
-
-    .modal-close {
-      border: none;
-      background: none;
-      font-size: 18px;
-      cursor: pointer;
-    }
-
-    .modal-content {
-      font-size: 16px;
-      color: var(--color-text-main);
-    }
-
-    .modal-footer {
-      margin-top: 12px;
-      text-align: right;
-    }
-
-    .modal-footer button {
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: none;
-      background: var(--color-primary);
-      color: #FFFFFF;
-      font-size: 14px;
-      cursor: pointer;
-      font-family: "Poppins", system-ui, sans-serif;
-      box-shadow: var(--shadow-soft);
-    }
-
-    /* Profiili */
-
-    .avatar-placeholder {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #3AA8C1, #A13E9F);
-      margin: 0 auto 12px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .profile-section {
-      margin-bottom: 16px;
-    }
-
-    .profile-section h3 {
-      font-size: 20px;
-      margin-bottom: 6px;
-    }
-
-    .icon-row {
-      display: flex;
-      gap: 8px;
-      margin: 8px 0;
-      font-size: 16px;
-    }
-  </style>
+<style>
+:root {
+  --color-h2: #000000;
+  --color-secondary: #000000;
+  --color-primary: #000000;
+  --color-text-main: #222222;
+  --color-bg: #F2F2F2;
+  --color-card: #FFFFFF;
+  --color-border: #CCCCCC;
+}
+
+/* Kevyt varjo (voi poistaa, jos haluat vielä puhtaamman lo-fi:n) */
+:root {
+  --shadow-soft: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --radius-card: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  background: var(--color-bg);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 16px;
+  color: var(--color-text-main);
+}
+
+.app {
+  width: 420px;
+  max-width: 100%;
+  height: 780px;
+  max-height: 100vh;
+  background: var(--color-bg);
+  border-radius: 28px;
+  border: 1px solid #B8BECA;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Ylärivi */
+
+.top-bar {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #DDDDDD;
+  background: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0 8px;
+  text-align: center;
+  color: var(--color-text-main);
+}
+
+/* Näkymät */
+
+.screen {
+  display: none;
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 12px 64px;
+}
+
+.screen.active {
+  display: block;
+}
+
+/* Typografia */
+
+h1 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: #000000;
+}
+
+h2 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 6px;
+  color: #000000;
+}
+
+h3 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--color-text-main);
+}
+
+p {
+  margin: 0 0 8px;
+  color: var(--color-text-main);
+  font-size: 16px;
+}
+
+.highlight {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+  margin: 16px 0 8px;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* Aloitusnäkymä */
+
+.splash-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  padding: 24px;
+  padding-top: 60px;
+  gap: 16px;
+}
+
+.splash-logo {
+  width: 96px;
+  height: 96px;
+  border-radius: 24px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-soft);
+}
+
+.splash-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #000000;
+}
+
+.splash-subtitle {
+  font-size: 16px;
+  color: var(--color-text-main);
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.splash-footnote {
+  font-size: 12px;
+  color: #777777;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.splash-button-area {
+  width: 100%;
+  max-width: 260px;
+  margin-top: 8px;
+}
+
+.btn-large {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #000000;
+  color: #FFFFFF;
+}
+
+/* Lomake-elementit */
+
+.field {
+  margin-bottom: 12px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: var(--color-text-main);
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  font-size: 16px;
+  background: #FFFFFF;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.field-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.field-row input {
+  flex: 1;
+}
+
+.field-row button {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  background: #FFFFFF;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #000000;
+}
+
+/* Checkbox-ryhmät aloituskyselyssä */
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.checkbox-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+/* Nappirivit */
+
+.button-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.btn-primary {
+  background: #000000;
+  color: #FFFFFF;
+}
+
+.btn-secondary {
+  background: #FFFFFF;
+  color: #000000;
+}
+
+/* Kortit ja karusellit */
+
+.card {
+  background: var(--color-card);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border);
+  padding: 10px;
+  margin-bottom: 8px;
+  box-shadow: var(--shadow-soft);
+}
+
+.card-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* Paikkamerkit kuville / videoille */
+
+.thumb,
+.carousel-thumb {
+  width: 100%;
+  height: 56px;
+  border-radius: 10px;
+  background: #DDDDDD;
+}
+
+.thumb {
+  width: 64px;
+  height: 40px;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  color: var(--color-text-main);
+}
+
+.card-meta {
+  font-size: 13px;
+  color: #555555;
+}
+
+
+/* Suodattimet (chipit) */
+
+.chip-row {
+  display: flex;
+  gap: 8px;
+  margin: 4px 0 8px;
+}
+
+.chip {
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: 1px solid var(--color-border);
+  background: #F4F4F4;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Aktiivinen esimerkkinappi lo-fi-tyyliin */
+
+.chip-active {
+  background: #000000;
+  color: #FFFFFF;
+  border-color: #000000;
+  font-weight: 600;
+}
+
+/* Karusellirivi sivusuuntaan */
+
+.chip-row.scrollable {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.chip-row.scrollable::-webkit-scrollbar {
+  display: none;
+}
+
+.chip-row.scrollable {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.horizontal-scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.horizontal-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.carousel-card {
+  min-width: 160px;
+  max-width: 180px;
+  height: 120px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: var(--color-card);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 12px;
+  box-shadow: var(--shadow-soft);
+}
+
+.carousel-thumb {
+  margin-bottom: 4px;
+}
+
+/* Media-alue kurssisivulla */
+
+.media-area {
+  height: 180px;
+  border-radius: 10px;
+  background: #DDDDDD;
+  border: 1px solid #CCCCCC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  flex-direction: column;
+  text-align: center;
+  font-size: 14px;
+  color: #222222;
+}
+
+.media-placeholder-icon {
+  width: 48px;
+  height: 32px;
+  border-radius: 10px;
+  border: 2px solid #555555;
+  margin-bottom: 6px;
+}
+
+.media-type {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+/* Tabit */
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #DDDDDD;
+  margin-bottom: 8px;
+  background: var(--color-card);
+  border-radius: 10px;
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  color: var(--color-text-main);
+}
+
+.tab.active {
+  border-bottom-color: #000000;
+  font-weight: 600;
+  background: #F4F4F4;
+}
+
+/* Accordion */
+
+.accordion {
+  margin-top: 8px;
+}
+
+.accordion-item {
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  margin-bottom: 6px;
+  background: var(--color-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.accordion-header {
+  padding: 8px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--color-text-main);
+}
+
+.accordion-body {
+  border-top: 1px solid #E2E2E2;
+  padding: 8px 10px;
+  font-size: 14px;
+}
+
+.accordion-body .card {
+  margin-bottom: 6px;
+}
+
+/* Alanavigaatio */
+
+.tabbar {
+  height: 56px;
+  border-top: 1px solid #DDDDDD;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.tab-button,
+.search-button {
+  flex: 1;
+  text-align: center;
+  font-size: 11px;
+  padding-top: 4px;
+  cursor: pointer;
+  color: #888888;
+}
+
+
+.tab-button.active {
+  color: #000000;
+  font-weight: 600;
+}
+
+/* Modaalit */
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.modal {
+  background: var(--color-card);
+  border-radius: 10px;
+  padding: 12px;
+  width: 90%;
+  max-height: 80%;
+  overflow-y: auto;
+  font-size: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.modal-header h2 {
+  font-size: 20px;
+  margin: 0 0 6px;
+  color: #000000;
+}
+
+.modal-close {
+  border: none;
+  background: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.modal-content {
+  font-size: 16px;
+  color: var(--color-text-main);
+}
+
+.modal-footer {
+  margin-top: 12px;
+  text-align: right;
+}
+
+.modal-footer button {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  background: #000000;
+  color: #FFFFFF;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Profiili */
+
+.avatar-placeholder {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #DDDDDD;
+  margin: 0 auto 12px;
+}
+
+.profile-section {
+  margin-bottom: 16px;
+}
+
+.profile-section h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+/* Profiilin header ylhäällä */
+
+.profile-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 16px 0 24px;
+  text-align: center;
+}
+
+.profile-name {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.profile-subinfo {
+  font-size: 14px;
+  color: #777777;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* Profiilin valikkonapit */
+
+.profile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-menu-item {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: #ffffff;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.profile-menu-item:hover {
+  background: #F4F4F4;
+}
+
+.profile-menu-label {
+  text-align: left;
+}
+
+.profile-menu-arrow {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Oma sivu summary */
+
+
+.profile-info {
+  font-size: 14px;
+  color: #555555;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.info-text {
+  font-size: 12px;
+  color: #777777;
+  margin-top: 6px;
+  margin-left: 6px;
+}
+
+.brand-title {
+  text-align: center;
+  margin: 16px 0 8px;
+  font-size: 28px;
+}
+
+.card,
+.carousel-card,
+.media-area,
+.tabs,
+.accordion-item,
+.modal,
+.app {
+  box-shadow: none !important;
+}
+
+.tab-button-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: #DDDDDD;
+  display: block;
+  margin: 0 auto 4px;
+}
+
+/* Piilota visuaalisesti H1-otsikot, mutta jätä ne DOMiin (halutessasi) */
+.screen h1 {
+  display: none;
+}
+
+.inline-search-trigger {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 4px;
+}
+
+.haku-btn {
+  display: inline-block !important;
+  width: auto !important;
+  padding: 6px 12px; /* sama tyyli kuin muissa napeissa */
+}
+
+
+</style>
+
 </head>
 <body>
   <div class="app">
     <div class="top-bar" id="topBarTitle">OpinDo Tervetuloa</div>
-
-    <!-- Haku modal -->
-    <div class="modal-backdrop" id="searchModalBackdrop">
-      <div class="modal">
-        <div class="modal-header">
-          <h2>Haku</h2>
-          <button class="modal-close" onclick="closeSearch()">×</button>
-        </div>
-        <div class="modal-content">
-          <div class="field-row">
-            <input id="searchInput" type="text" placeholder="Hae aihetta, kurssia tai sisältöä">
-            <button class="btn-primary" onclick="startSearch()">Hae</button>
-          </div>
-
-          <h2 class="section-title">Suodattimet</h2>
-          <div class="field">
-            <label>Kehon osa</label>
-            <select>
-              <option>(ei valintaa)</option>
-              <option>Leuka</option>
-              <option>Jalka</option>
-              <option>Nilkka</option>
-              <option>Kaularanka</option>
-              <option>Olkapää</option>
-              <option>Polvi</option>
-              <option>Lonkka</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label>Kategoria</label>
-            <select>
-              <option>(ei valintaa)</option>
-              <option>Haastattelu</option>
-              <option>Tutkiminen</option>
-              <option>Interventio</option>
-              <option>Hoitotekniikat</option>
-              <option>Harjoitusohjelmat</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label>Sisältötyyppi</label>
-            <select>
-              <option>(ei valintaa)</option>
-              <option>Kurssi</option>
-              <option>Moduuli</option>
-              <option>Teksti</option>
-              <option>Video</option>
-              <option>Podcast</option>
-              <option>Dokumentti</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Teksti modal -->
     <div class="modal-backdrop" id="textModalBackdrop">
@@ -669,11 +754,10 @@
           <button class="modal-close" onclick="closeTextModal()">×</button>
         </div>
         <div class="modal-content">
-          <p>Tähän tulee esimerkki pitkästä tekstisisällöstä tai transkriptista.</p>
-          <p>Lorem ipsum -tyyppinen paikka. Varsinaiset sisällöt tulevat myöhemmin.</p>
+          <p>Tämö on esimerkki pitkästä tekstisisällöstä tai transkriptista.</p>
         </div>
         <div class="modal-footer">
-          <button onclick="closeTextModal()">Sulje</button>
+          <button onclick="closeTextModal()">Jatka</button>
         </div>
       </div>
     </div>
@@ -686,7 +770,6 @@
           <button class="modal-close" onclick="closeQuizModal()">×</button>
         </div>
         <div class="modal-content">
-          <p>Tähän tulee kurssikysymyksiä.</p>
           <p><strong>Kysymys 1:</strong> Esimerkkikysymys kurssin sisällöstä.</p>
           <p>[ ] Vaihtoehto A</p>
           <p>[ ] Vaihtoehto B</p>
@@ -711,15 +794,11 @@
             <div class="media-type">Video</div>
             <div>Video toistuisi tässä.</div>
           </div>
-          <div class="icon-row">
-            <span>♡</span>
-            <span>📋</span>
-          </div>
           <p class="card-meta" id="videoModalMeta">Kesto: 5 min • Sisältötyyppi: Video</p>
           <p id="videoModalDescription">Lyhyt kuvaus videosta tulee tähän. Tämä voi kertoa, mitä käyttäjä oppii videosta.</p>
         </div>
         <div class="modal-footer">
-          <button onclick="closeVideoModal()">Sulje</button>
+          <button onclick="closeVideoModal()">Jatka</button>
         </div>
       </div>
     </div>
@@ -729,15 +808,13 @@
       <div class="splash-screen">
         <div class="splash-logo">OD</div>
         <div>
-          <div class="splash-title">OpinDo</div>
+          <div class="splash-title">OpinDo<br>Tervetuloa</div>
           <p class="splash-subtitle">
             Käytännönläheistä oppimista ajasta ja paikasta riippumatta.
           </p>
         </div>
         <div class="splash-button-area">
-          <button class="btn-large" onclick="showScreen('screen-login', 'Kirjaudu sisään')">
-            Aloita
-          </button>
+          <button class="btn-large" onclick="showScreen('screen-login', 'Kirjaudu sisään')">Aloita</button>
         </div>
         <p class="splash-footnote">
           Tämä on varhainen rautalankamalli. Testaamme palvelun rakennetta ja toiminnallisuutta, emme lopullista ulkoasua tai sisältöä.
@@ -748,94 +825,84 @@
     <!-- Kirjautuminen -->
     <div class="screen" id="screen-login">
       <h1>Kirjaudu sisään</h1>
+      <p style="margin-top:16px; font-size:13px;">Eikö sinulla ole vielä tiliä? <a href="#" onclick="showScreen('screen-signup','Luo tili'); return false;">Luo tili</a></p>
       <div class="field">
-        <label>Sähköposti</label>
-        <input type="email">
+        <label></label>
+        <input type="email" placeholder="esimerkki@osoite.fi">
       </div>
       <div class="field">
-        <label>Salasana</label>
-        <input type="password">
+        <label></label>
+        <input type="password" placeholder="Salasana">
       </div>
       <div class="button-row">
         <button class="btn btn-primary" onclick="showScreen('screen-survey','Aloituskysely')">Kirjaudu</button>
       </div>
-      <p style="margin-top:16px; font-size:13px;">Ei vielä tiliä? <a href="#" onclick="showScreen('screen-signup','Luo tili'); return false;">Luo tili</a></p>
+      <p style="margin-top:16px; font-size:13px;">Unohditko salasanasi? <a href="#" onclick="return false;">Palauta salasana</a></p>
     </div>
 
     <!-- Luo tili -->
     <div class="screen" id="screen-signup">
       <h1>Luo tili</h1>
-      <p>Syötä sähköposti ja aseta salasana.</p>
+      <p style="margin-top:16px; font-size:13px;">Onko sinulla jo tili? <a href="#" onclick="showScreen('screen-login','Kirjaudu sisään'); return false;">Kirjaudu sisään</a></p>
+        <div class="field">
+        <label></label>
+        <input type="nimi" placeholder="Etunimi Sukunimi">
+      </div>
       <div class="field">
-        <label>Sähköposti</label>
+        <label></label>
         <input type="email" placeholder="esimerkki@osoite.fi">
       </div>
       <div class="field">
-        <label>Salasana</label>
-        <input type="password" placeholder="Salasana">
+        <label></label>
+        <input type="password" placeholder="salasana">
       </div>
       <div class="field">
-        <label>Toista salasana</label>
+        <label></label>
         <input type="password" placeholder="Toista salasana">
       </div>
       <div class="button-row">
-        <button class="btn btn-primary" onclick="showScreen('screen-login', 'Kirjaudu sisään')">Seuraava</button>
+        <button class="btn btn-primary" onclick="showScreen('screen-login', 'Kirjaudu sisään')">Luo tili</button>
       </div>
-      <p style="margin-top:16px; font-size:13px;">Onko sinulla jo tili? <a href="#" onclick="showScreen('screen-login','Kirjaudu sisään'); return false;">Kirjaudu sisään</a></p>
     </div>
 
     <!-- Aloituskysely -->
     <div class="screen" id="screen-survey">
       <h1>Aloituskysely</h1>
-      <p>Autetaan OpinDoa ehdottamaan sopivia sisältöjä.</p>
-
-      <div class="field">
-        <label>Rooli</label>
-        <select>
-          <option>Opiskelija</option>
-          <option>Uran alku</option>
-          <option>Kokenut</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>Tavoite</label>
-        <select>
-          <option>Tentti</option>
-          <option>Nopea sukellus</option>
-          <option>Oppia uutta</option>
-          <option>Kertaus</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>Ensisijainen käyttötapa</label>
-        <select>
-          <option>Kurssi</option>
-          <option>Täsmähaku</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>Tavoiteaika per viikko</label>
-        <select>
-          <option>10 min</option>
-          <option>10 - 30 min</option>
-          <option>30 - 60 min</option>
-          <option>Yli tunti</option>
-        </select>
-      </div>
-
-      <div class="button-row">
-        <button class="btn btn-secondary" onclick="showScreen('screen-tutorial','Opastus')">Ohita</button>
-        <button class="btn btn-primary" onclick="showScreen('screen-tutorial','Opastus')">Tallenna ja jatka</button>
-      </div>
+      <p>Auta OpinDoa ehdottamaan sinulle sisältöjä kertomalla itsestäsi ja tavoitteistasi.</p>
+        <div class="field">
+            <label>Taso</label>
+            <div class="checkbox-group">
+                <label class="checkbox-item"><input type="checkbox"> <span>Opiskelija</span></label>
+                <label class="checkbox-item"><input type="checkbox"> <span>Uran alku</span></label>
+                <label class="checkbox-item"><input type="checkbox"> <span>Kokenut</span></label>
+            </div>
+        </div>
+        <div class="field">
+            <label>Tavoite</label>
+            <div class="checkbox-group">
+                <label class="checkbox-item"><input type="checkbox"> <span>Kurssi</span></label>
+                <label class="checkbox-item"><input type="checkbox"> <span>Tenttisparraus</span></label>
+                <label class="checkbox-item"><input type="checkbox"> <span>Kertaus</span></label>
+                <label class="checkbox-item"><input type="checkbox"> <span>Täsmähaku</span></label>
+            </div>
+        </div>
+        <div class="field">
+            <label>Tavoiteopiskeluaika per viikko</label>
+            <div class="checkbox-group">
+                <label class="checkbox-item"><input type="checkbox"> <span>30 min</span></label>
+                <label class="checkbox-item"><input type="checkbox"> <span>30–60 min</span></label>
+                <label class="checkbox-item"><input type="checkbox"> <span>Yli 60 min</span></label>
+            </div>
+        </div>
+        <div class="button-row">
+            <button class="btn btn-primary" onclick="showScreen('screen-tutorial','Opastus')">Tallenna ja jatka</button>
+            <button class="btn btn-secondary" onclick="showScreen('screen-tutorial','Opastus')">Ohita</button>
+        </div>
     </div>
 
     <!-- Opastus -->
     <div class="screen" id="screen-tutorial">
       <h1>Opastus</h1>
-
       <div class="card card-row" onclick="openVideoModal('Näin käytät OpinDoa','Kesto: 3 min • Opastusvideo','Video esittelee OpinDon perusrakenteen ja navigoinnin.')">
         <div class="thumb"></div>
         <div style="flex:1;">
@@ -843,7 +910,6 @@
           <div class="card-meta">Lyhyt esittely palvelun rakenteesta.</div>
         </div>
       </div>
-
       <div class="card card-row" onclick="openVideoModal('Miten löydät kurssit ja sisällöt','Kesto: 4 min • Opastusvideo','Video näyttää, miten käytät kurssikirjastoa, hakua ja suodattimia.')">
         <div class="thumb"></div>
         <div style="flex:1;">
@@ -851,40 +917,25 @@
           <div class="card-meta">Katsaus hakutoimintoihin ja kurssikirjastoon.</div>
         </div>
       </div>
-
       <div class="button-row">
-        <button class="btn btn-primary" onclick="showScreen('screen-home','🏠 Oma sivu')">Jatka</button>
+        <button class="btn btn-primary" onclick="showScreen('screen-home','Oma sivu')">Jatka</button>
       </div>
     </div>
+    
 
     <!-- Oma sivu -->
     <div class="screen" id="screen-home">
       <h1>Oma sivu</h1>
 
-      <div class="card">
-        <div class="card-row">
-          <div class="avatar-placeholder"></div>
-          <div style="flex:1;">
-            <div class="card-title" style="margin-bottom:4px; color: var(--color-primary);">Hei!</div>
-            <div class="card-meta">Viikkotavoite: 30 - 60 min • Tällä viikolla: 20 min</div>
-            <div class="card-meta">Suoritettuja kursseja: 2 • Avoimia: 3</div>
-          </div>
-        </div>
-      </div>
-
-      <h2 class="section-title">Mitä haluaisit oppia tänään?</h2>
-      <div class="card">
-        <div class="field">
-          <label>Kirjoita aihe, tentti tai osa-alue</label>
-          <input type="text" placeholder="Esim. olkapää, tentti, harjoitusohjelmat">
-        </div>
-        <p class="card-meta">
-          Esimerkki: Jos kirjoitat <span class="highlight">“olkapää”</span>, järjestelmä voisi suositella sinulle olkapään tutkimisen kurssia ja siihen liittyviä videoita.
+    <h2 class="section-title">Hei Mikko, mitä haluaisit oppia tänään?</h2>
+    <div class="field">
+        <input type="text" placeholder="Kirjoita kysymys tai aihe, josta haluaisin oppia lisää.">
+        <p class="info-text">
+        Kysy OpinDoMentorilta, joka vastaa kysymykseesi ja suosittelee sinulle sopivaa kurssia ja aiheeseen liittyviä videoita.
         </p>
-      </div>
-
-      <h2 class="section-title">Jatka katsomista</h2>
-      <div class="horizontal-scroll">
+    </div>
+    <h2 class="section-title">Jatka katsomista</h2>
+    <div class="horizontal-scroll">
         <div class="carousel-card" onclick="showScreen('screen-course','📚 Kurssit')">
           <div class="carousel-thumb"></div>
           <div class="card-title" style="font-size:13px;">Kaularangan tutkiminen</div>
@@ -901,8 +952,7 @@
           <div class="card-meta">Kurssi suoritettu 10 %</div>
         </div>
       </div>
-
-      <h2 class="section-title">Suosikit</h2>
+    <h2 class="section-title">Suosikit</h2>
       <div class="horizontal-scroll">
         <div class="carousel-card">
           <div class="carousel-thumb"></div>
@@ -915,7 +965,6 @@
           <div class="card-meta">Video • 8 min</div>
         </div>
       </div>
-
       <h2 class="section-title">Soittolistat</h2>
       <div class="horizontal-scroll">
         <div class="carousel-card">
@@ -929,7 +978,6 @@
           <div class="card-meta">3 videota</div>
         </div>
       </div>
-
       <h2 class="section-title">Historia</h2>
       <div class="horizontal-scroll">
         <div class="carousel-card">
@@ -947,155 +995,217 @@
 
     <!-- Kurssikirjasto -->
     <div class="screen" id="screen-courses">
-      <h1>Kurssikirjasto</h1>
+      <h1>Kurssit</h1>
 
-      <div class="field-row">
-        <input id="coursesSearchInput" type="text" placeholder="Etsi aihetta, kurssia tai sisältöä">
-        <button class="btn-primary" onclick="startLibrarySearch()">Hae</button>
+      <div class="inline-search-trigger">
+        <button class="btn btn-secondary haku-btn" onclick="showScreen('screen-haku','Haku')">Hae kursseista</button>
       </div>
 
-      <h2 class="section-title">Suodattimet</h2>
-      <div class="chip-row">
-        <div class="chip">Uusi sisältö</div>
-        <div class="chip">Suositukset</div>
-      </div>
-
-      <div class="field">
-        <label>Kehon osa</label>
-        <select>
-          <option>(ei valintaa)</option>
-          <option>Leuka</option>
-          <option>Jalka</option>
-          <option>Nilkka</option>
-          <option>Kaularanka</option>
-          <option>Olkapää</option>
-          <option>Polvi</option>
-          <option>Lonkka</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>Kategoria</label>
-        <select>
-          <option>(ei valintaa)</option>
-          <option>Haastattelu</option>
-          <option>Tutkiminen</option>
-          <option>Interventio</option>
-          <option>Hoitotekniikat</option>
-          <option>Harjoitusohjelmat</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>Sisältötyyppi</label>
-        <select>
-          <option>(ei valintaa)</option>
-          <option>Kurssi</option>
-          <option>Moduuli</option>
-          <option>Teksti</option>
-          <option>Video</option>
-          <option>Podcast</option>
-          <option>Dokumentti</option>
-        </select>
-      </div>
-
-      <h2 class="section-title">Kurssit (oletusnäkymä)</h2>
-
+      <h2 class="section-title">Esimerkkikurssi</h2>
       <div class="card card-row" onclick="showScreen('screen-course','📚 Kurssit')">
         <div class="thumb"></div>
         <div style="flex:1;">
           <div class="card-title">Kaularangan tutkiminen</div>
           <div class="card-meta">Eteneminen: <span style="color: var(--color-secondary);">70 %</span></div>
         </div>
-        <div class="card-actions">
-          <span>♡</span>
-          <span>📋</span>
-        </div>
       </div>
-
       <div class="card card-row">
         <div class="thumb"></div>
         <div style="flex:1;">
           <div class="card-title">Olkapään kliiniset testit</div>
           <div class="card-meta">Eteneminen: 0 %</div>
         </div>
-        <div class="card-actions">
-          <span>♡</span>
-          <span>📋</span>
-        </div>
       </div>
-    </div>
-
-    <!-- Kurssikirjasto – haun tulos -->
-    <div class="screen" id="screen-courses-results">
-      <h1>Kurssikirjasto – haku</h1>
-
-      <div class="field-row">
-        <input id="coursesResultsSearchInput" type="text" placeholder="Etsi aihetta, kurssia tai sisältöä">
-        <button class="btn-primary">Hae</button>
-      </div>
-
-      <h2 class="section-title">Suodattimet</h2>
-      <div class="chip-row">
-        <div class="chip">Uusi sisältö ✖</div>
-        <div class="chip">Suositukset</div>
-      </div>
-
-      <div class="field">
-        <label>Kehon osa</label>
-        <select>
-          <option>Kaularanka</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>Kategoria</label>
-        <select>
-          <option>Tutkiminen</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>Sisältötyyppi</label>
-        <select>
-          <option>Video</option>
-        </select>
-      </div>
-
-      <h2 class="section-title">Aktiiviset suodattimet</h2>
-      <div class="chip-row">
-        <div class="chip">Video ✖</div>
-        <div class="chip">Kaularanka ✖</div>
-        <div class="chip">Moduuli ✖</div>
-      </div>
-
-      <h2 class="section-title">Hakutulokset</h2>
-
-      <div class="card card-row" onclick="openVideoModal('Video: Kaularangan liikeratatesti','Kesto: 8 min • Video','Esimerkkivideo kaularangan liikeratatestistä.')">
+      <h2 class="section-title">Opastusvideot</h2>
+      <div class="card card-row" onclick="openVideoModal('Näin käytät OpinDoa','Kesto: 3 min • Opastusvideo','Video esittelee OpinDon perusrakenteen ja navigoinnin.')">
         <div class="thumb"></div>
         <div style="flex:1;">
-          <div class="card-title">Video: Kaularangan liikeratatesti</div>
-          <div class="card-meta">Video • Kurssi: Kaularangan tutkiminen</div>
+          <div class="card-title">Näin käytät OpinDoa</div>
+          <div class="card-meta">Lyhyt esittely palvelun rakenteesta.</div>
         </div>
-        <div class="card-actions">
-          <span>♡</span>
-          <span>📋</span>
+      </div>
+      <div class="card card-row" onclick="openVideoModal('Miten löydät kurssit ja sisällöt','Kesto: 4 min • Opastusvideo','Video näyttää, miten käytät kurssikirjastoa, hakua ja suodattimia.')">
+        <div class="thumb"></div>
+        <div style="flex:1;">
+          <div class="card-title">Miten löydät kurssit ja sisällöt</div>
+          <div class="card-meta">Katsaus hakutoimintoihin ja kurssikirjastoon.</div>
+        </div>
+      </div>
+
+      <!-- Kaikki Oppiportaalin kurssit -->
+      <h2 class="section-title">Kaikki Oppiportaali-kurssit</h2>
+      <div class="card card-row">
+        <div class="thumb"></div>
+        <div style="flex:1;">
+          <div class="card-title">Kuinka tutkin leukanivelen?</div>
+          <div class="card-meta">Tutkimisesta tulkintaan, hoitoon ja kuntoutukseen</div>
         </div>
       </div>
 
       <div class="card card-row">
         <div class="thumb"></div>
         <div style="flex:1;">
+          <div class="card-title">Kuinka tutkin jalan ja nilkan?</div>
+          <div class="card-meta">Tutkimisesta tulkintaan, hoitoon ja kuntoutukseen</div>
+        </div>
+      </div>
+
+      <div class="card card-row" onclick="showScreen('screen-course','📚 Kurssit')">
+        <div class="thumb"></div>
+        <div style="flex:1;">
+          <div class="card-title">Kuinka tutkin kaularangan?</div>
+          <div class="card-meta">Tutkimisesta tulkintaan, hoitoon ja kuntoutukseen</div>
+        </div>
+      </div>
+
+      <div class="card card-row">
+        <div class="thumb"></div>
+        <div style="flex:1;">
+          <div class="card-title">Kuinka tutkin olkapään ja hartiarenkaan?</div>
+          <div class="card-meta">Tutkimisesta tulkintaan, hoitoon ja kuntoutukseen</div>
+        </div>
+      </div>
+
+      <div class="card card-row">
+        <div class="thumb"></div>
+        <div style="flex:1;">
+          <div class="card-title">Kuinka tutkin polvinivelen?</div>
+          <div class="card-meta">Tutkimisesta tulkintaan, hoitoon ja kuntoutukseen</div>
+        </div>
+      </div>
+
+      <div class="card card-row">
+        <div class="thumb"></div>
+        <div style="flex:1;">
+          <div class="card-title">Kuinka tutkin lonkkanivelen?</div>
+          <div class="card-meta">Tutkimisesta tulkintaan, hoitoon ja kuntoutukseen<br>
+          Kurssia päivitetään viikoittain</div>
+        </div>
+      </div>
+
+      <div class="card card-row">
+        <div class="thumb"></div>
+        <div style="flex:1;">
+          <div class="card-title">Käsittelytekniikat</div>
+          <div class="card-meta">Kurssien hoitotekniikoita</div>
+        </div>
+      </div>
+
+      <div class="card card-row">
+        <div class="thumb"></div>
+        <div style="flex:1;">
+          <div class="card-title">Harjoitepankki</div>
+          <div class="card-meta">Harjoitteita</div>
+        </div>
+      </div>
+
+      <div class="card card-row">
+        <div class="thumb"></div>
+        <div style="flex:1;">
+          <div class="card-title">TULE materiaalipankki</div>
+          <div class="card-meta">TULE - terapian kannalta tärkeää teoria tietoa</div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+<!-- Haku tyhjä -->
+    <div class="screen" id="screen-haku">
+      <h1>Haku</h1>
+        <div class="field-row">
+            <input id="coursesSearchInput" type="text" placeholder="Etsi aihetta, kurssia tai sisältöä">
+            <button class="btn-primary" onclick="startLibrarySearch()">Hae</button>
+        </div>
+      <h2 class="section-title">Suodattimet</h2>
+      <div class="chip-row scrollable">
+        <button class="chip">Uutuudet</button>
+        <button class="chip">Sinulle suositellut</button>
+        <button class="chip">Suosituimmat</button>
+        <button class="chip">Ohjeet</button>
+      </div>
+      <div class="chip-row scrollable">
+        <button class="chip">Leuka</button>
+        <button class="chip">Jalka</button>
+        <button class="chip">Nilkka</button>
+        <button class="chip">Kaularanka</button>
+        <button class="chip">Olkapää</button>
+        <button class="chip">Polvi</button>
+        <button class="chip">Lonkka</button>
+      </div>
+      <div class="chip-row scrollable">
+        <button class="chip">Haastattelu</button>
+        <button class="chip">Tutkiminen</button>
+        <button class="chip">Interventio</button>
+        <button class="chip">Hoitotekniikat</button>
+        <button class="chip">Harjoitusohjelmat</button>
+      </div>
+      <div class="chip-row scrollable">
+        <button class="chip ">Kurssi</button>
+        <button class="chip">Moduuli</button>
+        <button class="chip">Teksti</button>
+        <button class="chip">Video</button>
+        <button class="chip">Podcast</button>
+        <button class="chip">Dokumentti</button>
+      </div>
+      <h2 class="section-title">Hakutulokset</h2>
+    </div>
+    <!-- Haun tulos -->
+    <div class="screen" id="screen-courses-results">
+      <h1>Haku</h1>
+      <div class="field-row">
+        <input id="coursesResultsSearchInput" type="text" placeholder="Etsi aihetta, kurssia tai sisältöä">
+        <button class="btn-primary">Hae</button>
+      </div>
+      <h2 class="section-title">Suodattimet</h2>
+      <div class="chip-row scrollable">
+        <button class="chip">Uutuudet</button>
+        <button class="chip">Sinulle suositellut</button>
+        <button class="chip">Suosituimmat</button>
+        <button class="chip">Ohjeet</button>
+      </div>
+      <div class="chip-row scrollable">
+        <button class="chip">Leuka</button>
+        <button class="chip">Jalka</button>
+        <button class="chip">Nilkka</button>
+        <button class="chip chip-active">Kaularanka</button>
+        <button class="chip">Olkapää</button>
+        <button class="chip">Polvi</button>
+        <button class="chip">Lonkka</button>
+      </div>
+      <div class="chip-row scrollable">
+        <button class="chip">Haastattelu</button>
+        <button class="chip chip-active">Tutkiminen</button>
+        <button class="chip">Interventio</button>
+        <button class="chip">Hoitotekniikat</button>
+        <button class="chip">Harjoitusohjelmat</button>
+      </div>
+      <div class="chip-row scrollable">
+        <button class="chip ">Kurssi</button>
+        <button class="chip">Moduuli</button>
+        <button class="chip">Teksti</button>
+        <button class="chip chip-active">Video</button>
+        <button class="chip chip-active">Podcast</button>
+        <button class="chip">Dokumentti</button>
+      </div>
+      <h2 class="section-title">Hakutulokset</h2>
+      <div class="card card-row" onclick="openVideoModal('Video: Kaularangan liikeratatesti','Kesto: 8 min • Video','Esimerkkivideo kaularangan liikeratatestistä.')">
+        <div class="thumb"></div>
+        <div style="flex:1;">
+          <div class="card-title">Video: Kaularangan liikeratatesti</div>
+          <div class="card-meta">Video • Kurssi: Kaularangan tutkiminen</div>
+        </div>
+      </div>
+      <div class="card card-row">
+        <div class="thumb"></div>
+        <div style="flex:1;">
           <div class="card-title">Podcast: Palpaation vinkit</div>
           <div class="card-meta">Podcast • Kurssi: Tuki- ja liikuntaelimistön perusteet</div>
         </div>
-        <div class="card-actions">
-          <span>♡</span>
-          <span>📋</span>
-        </div>
       </div>
     </div>
-
+  
     <!-- Kurssisivu -->
     <div class="screen" id="screen-course">
       <h1>Kurssi</h1>
@@ -1193,99 +1303,79 @@
       </div>
     </div>
 
-    <!-- Profiili -->
+    <!-- Profiili -->    
     <div class="screen" id="screen-profile">
       <h1>Profiili</h1>
-
-      <div class="avatar-placeholder"></div>
-
-      <div class="profile-section">
-        <h3>Henkilötiedot</h3>
-        <div class="field">
-          <label>Nimi</label>
-          <input type="text" placeholder="Mikko Oppi">
+       <!-- Profiili-header ylhäällä -->
+        <div class="profile-top">
+            <div class="avatar-placeholder"></div>
+            <div class="profile-name">Mikko Oppi</div>
+            <div class="profile-info">
+                Opiskelua: 20 min • viikkotavoite 30 - 60 min<br>
+                Suoritettuja kursseja: 2 • Kesken: 3
+            </div>
+            <div class="profile-subinfo">
+                Tilaus: aktiivinen • seuraava jakso alkaa 15.12.2025
+            </div>
         </div>
-        <div class="field">
-          <label>Sähköposti</label>
-          <input type="email" placeholder="esimerkki@osoite.fi">
-        </div>
-        <div class="field">
-          <label>Salasanan vaihto</label>
-          <input type="password" placeholder="Uusi salasana">
-        </div>
-        <div class="field">
-          <label>Kielivalinta</label>
-          <select>
-            <option>Suomi</option>
-            <option>Englanti</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="profile-section">
-        <h3>Preferenssit</h3>
-        <div class="field">
-          <label>Rooli</label>
-          <select>
-            <option>Opiskelija</option>
-            <option>Uran alku</option>
-            <option>Kokenut</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Tavoite</label>
-          <select>
-            <option>Tentti</option>
-            <option>Nopea sukellus</option>
-            <option>Oppia uutta</option>
-            <option>Kertaus</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Ensisijainen käyttötapa</label>
-          <select>
-            <option>Kurssi</option>
-            <option>Täsmähaku</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Tavoiteaika per viikko</label>
-          <select>
-            <option>10 min</option>
-            <option>10 - 30 min</option>
-            <option>30 - 60 min</option>
-            <option>Yli tunti</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="profile-section">
-        <h3>Tilaus</h3>
-        <p class="card-meta">Tilaus: aktiivinen • Seuraava laskutus: 15.5.2025</p>
-      </div>
-
-      <div class="button-row">
-        <button class="btn btn-primary">Tallenna muutokset</button>
-        <button class="btn btn-secondary">Kirjaudu ulos</button>
+      
+      <!-- Profiilin valikkonapit -->
+      <div class="profile-menu">
+        <button class="profile-menu-item">
+            <span class="profile-menu-label">Muuta tietoja</span>
+            <span class="profile-menu-arrow">›</span>
+        </button>
+        <button class="profile-menu-item">
+            <span class="profile-menu-label">Kielivalinta</span>
+            <span class="profile-menu-arrow">›</span>
+        </button>
+        <button class="profile-menu-item">
+            <span class="profile-menu-label">Yksilöinti</span>
+            <span class="profile-menu-arrow">›</span>
+        </button>
+        <button class="profile-menu-item">
+            <span class="profile-menu-label">Turvallisuus</span>
+            <span class="profile-menu-arrow">›</span>
+        </button>
+        <button class="profile-menu-item">
+            <span class="profile-menu-label">Saavutettavuus</span>
+            <span class="profile-menu-arrow">›</span>
+        </button>
+        <button class="profile-menu-item">
+            <span class="profile-menu-label">Tilaushistoria</span>
+            <span class="profile-menu-arrow">›</span>
+        </button>
+        <button class="profile-menu-item">
+            <span class="profile-menu-label">Maksutapa</span>
+            <span class="profile-menu-arrow">›</span>
+        </button>
+        <button class="profile-menu-item">
+            <span class="profile-menu-label">Tukikeskus</span>
+            <span class="profile-menu-arrow">›</span>
+        </button>       
+        <button class="profile-menu-item">
+            <span class="profile-menu-label">Kirjaudu ulos</span>
+            <span class="profile-menu-arrow">›</span>
+        </button>  
       </div>
     </div>
 
     <!-- Alanavigaatio -->
     <div class="tabbar">
       <div class="tab-button" data-target="screen-home" onclick="switchTab(this)">
-        <span class="tab-button-icon">🏠</span>
+        <span class="tab-button-icon"></span>
         <span>Oma sivu</span>
       </div>
-      <div class="search-button" onclick="openSearch()">
-        <span class="tab-button-icon">🔍</span>
+      <div class="tab-button" data-target="screen-haku" onclick="switchTab(this)">
+        <span class="tab-button-icon"></span>
         <span>Haku</span>
       </div>
       <div class="tab-button" data-target="screen-courses" onclick="switchTab(this)">
-        <span class="tab-button-icon">📚</span>
+        <span class="tab-button-icon"></span>
         <span>Kurssit</span>
       </div>
       <div class="tab-button" data-target="screen-profile" onclick="switchTab(this)">
-        <span class="tab-button-icon">👤</span>
+        <span class="tab-button-icon"></span>
         <span>Profiili</span>
       </div>
     </div>
@@ -1334,7 +1424,7 @@
       const input = document.getElementById('searchInput');
       const query = (input && input.value) ? input.value : 'kaularanka';
       closeSearch();
-      showScreen('screen-courses-results', '📚 Kurssit');
+      showScreen('screen-courses-results', ' Haku');
       const resultInput = document.getElementById('coursesResultsSearchInput');
       if (resultInput) {
         resultInput.value = query;
@@ -1344,7 +1434,7 @@
     function startLibrarySearch() {
       const input = document.getElementById('coursesSearchInput');
       const query = (input && input.value) ? input.value : 'kaularanka';
-      showScreen('screen-courses-results', '📚 Kurssit');
+      showScreen('screen-courses-results', ' Haku');
       const resultInput = document.getElementById('coursesResultsSearchInput');
       if (resultInput) {
         resultInput.value = query;

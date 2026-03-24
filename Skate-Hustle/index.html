@@ -16,6 +16,43 @@
 
   <link rel="stylesheet" href="styles.css" />
 </head>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelectorAll(".navbar-collapse .nav-link");
+    const navbarCollapse = document.getElementById("mainNav");
+
+    if (!navbarCollapse) return;
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", function (e) {
+        const href = this.getAttribute("href");
+        if (!href || !href.startsWith("#")) return;
+
+        const target = document.querySelector(href);
+        if (!target) return;
+
+        if (window.innerWidth <= 768 && navbarCollapse.classList.contains("show")) {
+          e.preventDefault();
+
+          const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navbarCollapse);
+          navbarCollapse.addEventListener(
+            "hidden.bs.collapse",
+            function handler() {
+              target.scrollIntoView({ behavior: "smooth", block: "start" });
+              navbarCollapse.removeEventListener("hidden.bs.collapse", handler);
+            },
+            { once: true }
+          );
+
+          bsCollapse.hide();
+        }
+      });
+    });
+  });
+</script>
+
+
 <body>
   <div class="site-noise"></div>
 

@@ -605,7 +605,11 @@ footer {
 }
 
 @media (max-width: 768px) {
+  html {
+    scroll-padding-top: 72px;
+  }
+
   section[id] {
-    scroll-margin-top: 110px;
+    scroll-margin-top: 72px;
   }
 }

@@ -294,6 +294,7 @@ footer {
 
 .app-progress {
   height: 1rem;
+  width: 100%;
   background: rgba(0,0,0,0.35);
   border: 1px solid var(--app-line);
   border-radius: 999px;
@@ -669,6 +670,8 @@ footer {
 }
 
 .packers-logo {
+  height: 20rem;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -676,19 +679,79 @@ footer {
 }
 
 .packers-logo img {
-  max-height: 25rem;   /* rajoittaa, ei pakota */
+  height: 20rem;
   width: auto;
-  height: auto;
   display: block;
+  transform: scale(1.3) ;
+  transform-origin: center;
 }
 
 @media (max-width: 768px) {
   .packers-logo {
-    justify-content: center;
+    height: 16rem;
   }
 
   .packers-logo img {
-    max-height: 25rem;
-    width: 100%;
+    height: 16rem;
+    transform: scale(1.2);
   }
+}
+
+
+.packers-progress-wrap {
+  position: relative;
+  width: 100%; /* KRITTIINEN */
+  margin-top: 0.5rem;
+  padding-bottom: 1.4rem;
+}
+
+.packers-threshold {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  height: 100%;
+  height: 1rem; /* sama korkeus kuin progress-barilla */
+  pointer-events: none;
+}
+
+.packers-threshold-line {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+}
+
+.packers-threshold-label,
+.packers-scale {
+  position: absolute;
+  top: calc(1rem + 0.35rem);
+  text-align: center;
+  min-width: 2rem;
+  font-size: 0.7rem;
+  color: var(--app-muted);
+  white-space: nowrap;
+}
+
+.packers-threshold-label {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.packers-start {
+  left: 0;
+}
+
+.packers-end {
+  right: 0;
+}
+
+.packers-urgency {
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.01em;
 }

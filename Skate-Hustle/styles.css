@@ -448,9 +448,6 @@ footer {
   padding-bottom: 0.5rem;
 }
 
-.guide-image {
-  min-height: 19rem;
-}
 
 .footer-area {
   padding: 2rem 0 3rem;
@@ -611,5 +608,80 @@ footer {
 
   section[id] {
     scroll-margin-top: 12px;
+  }
+}
+
+.guide-image {
+  height: 22rem;
+  overflow: hidden;
+  padding: 0;
+}
+
+.guide-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+.guide-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.03)
+  );
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.22),
+    0 0 0 1px rgba(255,255,255,0.04) inset;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 1.1rem;
+  padding: 0.1rem;
+}
+
+.guide-card .guide-image {
+  border-radius: 0.9rem;
+}
+
+.video-frame {
+  height: 18rem;
+  overflow: hidden;
+  padding: 0;
+}
+
+.video-frame video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+.packers-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.packers-logo img {
+  max-height: 25rem;   /* rajoittaa, ei pakota */
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .packers-logo {
+    justify-content: center;
+  }
+
+  .packers-logo img {
+    max-height: 25rem;
+    width: 100%;
   }
 }

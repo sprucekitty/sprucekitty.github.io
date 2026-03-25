@@ -612,9 +612,18 @@ footer {
 }
 
 .guide-image {
-  height: 22rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
   overflow: hidden;
   padding: 0;
+}
+
+@media (max-width: 575.98px) {
+  .guide-image {
+    min-height: 22rem;
+  }
 }
 
 .guide-image img {
@@ -624,7 +633,6 @@ footer {
   object-fit: cover;
   object-position: center;
 }
-
 
 .guide-card {
   background: linear-gradient(
@@ -659,7 +667,6 @@ footer {
   object-fit: cover;
   object-position: center;
 }
-
 
 .packers-logo {
   display: flex;

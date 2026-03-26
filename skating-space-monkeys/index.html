@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skate Hustle web prototype</title>
+
+  <link rel="stylesheet" href="morph.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+<link rel="stylesheet" href="styles.css" />
+</head>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelectorAll(".navbar-collapse .nav-link");
+    const navbarCollapse = document.getElementById("mainNav");
+
+    if (!navbarCollapse) return;
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", function (e) {
+        const href = this.getAttribute("href");
+        if (!href || !href.startsWith("#")) return;
+
+        const target = document.querySelector(href);
+        if (!target) return;
+
+        if (window.innerWidth <= 768 && navbarCollapse.classList.contains("show")) {
+          e.preventDefault();
+
+          const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navbarCollapse);
+          navbarCollapse.addEventListener(
+            "hidden.bs.collapse",
+            function handler() {
+              target.scrollIntoView({ behavior: "smooth", block: "start" });
+              navbarCollapse.removeEventListener("hidden.bs.collapse", handler);
+            },
+            { once: true }
+          );
+
+          bsCollapse.hide();
+        }
+      });
+    });
+  });
+</script>
+
+
+<body>
+  <div class="site-noise">
+
+  </div>
+
+  <header class="navbar navbar-expand-lg sticky-top app-navbar">
+    <div class="container">
+      <a class="navbar-brand brand-mark" href="#top">
+
+        <img src="Assets/SSM-logo-tag-small.png" alt="Skating Space Monkeys" class="logo">
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+        aria-controls="mainNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <nav class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#game">Game</a></li>
+          <li class="nav-item"><a class="nav-link" href="#crowdfunding">Crowdfunding</a></li>
+          <li class="nav-item"><a class="nav-link" href="#shop">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="#story">Our Story</a></li>
+          <li class="nav-item"><a class="nav-link" href="#lab">Lab</a></li>
+          <li class="nav-item"><a class="nav-link" href="#guides">Guides</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section id="hero" class="section-space hero-full">
+      <div class="hero-media-full">
+        <div class="hero-media-frame">
+          <img src="Assets/Skateboarding.jpg" alt="Skateboarding hero image">
+          <div class="hero-media-overlay"></div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="hero-full-content">
+          <h1 class="hero-title mb-4">
+            Build. Wear. Skate. <br>
+            Together.
+          </h1>
+
+          <p class="hero-copy mb-4">
+            Authentic skatewear and indie games rooted in wabi-sabi aesthetics, deliberate scarcity, and human imperfection.
+            Real sketchbook drawings, localized print manufacturing, and grassroots street culture.
+          </p>
+
+          <div class="d-flex flex-wrap gap-4 mb-4">
+            <a href="#game" class="btn btn-lg arcade-btn-primary">Play Now</a>
+            <a href="#shop" class="btn btn-lg arcade-btn-secondary">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="game" class="section-space">
+      <div class="container">
+        <div class="section-heading-wrap">
+          <div>
+            <div class="eyebrow">The game</div>
+            <h2 class="section-title">Skate first.</h2>
+          </div>
+          <p class="section-intro ">Skate Hustle. Our indie game.</p>
+        </div>
+
+        <div class="app-panel p-3 p-md-4">
+          <div class="game-embed" id="gameEmbed">
+            <div class="game-stage" id="gameStage">
+              <iframe
+                id="gameFrame"
+                src="https://juhokawaii.github.io/skate-hustle/"
+                title="Our indie game."
+                loading="lazy"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+            <p class="game-instructions mt-3 mb-0">
+                Play on desktop using your keyboard. Use arrow keys to move and Enter to select.
+            </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="crowdfunding" class="section-space">
+      <div class="container">
+        <div class="section-heading-wrap">
+          <div>
+            <div class="eyebrow">The crowdfunding hub</div>
+            <h2 class="section-title">Unlock together.</h2>
+          </div>
+          <p class="section-intro">Skate Hustle Founder Pack pre-order campaign.</p>
+        </div>
+
+        <div class="app-panel app-panel-blue p-3 p-md-4">
+          <div class="packers-logo">
+            <img src="Assets/logo-full-big.png" alt="Skate Hustle logo">
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <div class="packers-label">The Packers meter</div>
+            <div class="packers-value">34 pcs</div>
+          </div>
+
+        <div class="packers-progress-wrap mt-2">
+          <div
+            class="progress app-progress"
+            role="progressbar"
+            aria-label="Pre-order progress"
+            aria-valuenow="34"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            <div class="progress-bar app-progress-bar" style="width: 34%"></div>
+          </div>
+
+          <div class="packers-threshold" style="left: 50%;">
+            <span class="packers-threshold-line"></span>
+            <span class="packers-threshold-label">50</span>
+          </div>
+
+          <span class="packers-scale packers-start">0</span>
+          <span class="packers-scale packers-end">100</span>
+        </div>
+
+          <p class="mt-3 mb-2 packers-copy">
+            Only 16 more to unlock the Skate Hustle Blue Label shirt & Founder Game Sprite + Graffiti Print!
+          </p>
+          <p class="mb-4 packers-copy packers-urgency">Don’t miss out. Pre-order your pack now.</p>
+          <a href="#" class="btn arcade-btn-secondary">Pre-order Now</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="shop" class="section-space">
+      <div class="container">
+        <div class="section-heading-wrap">
+          <div>
+            <div class="eyebrow">The shop</div>
+            <h2 class="section-title">Three tiers, one attitude.</h2>
+          </div>
+          <p class="section-intro">
+            Built on heavyweight cotton. Because if the canvas fails, the art is worthless.
+          </p>
+        </div>
+
+        <div class="vstack gap-4">
+          <div class="app-panel p-4">
+            <div class="label-tag label-red mb-3">Red Label</div>
+            <h3 class="card-title-main">Premium print-on-demand essentials</h3>
+            <p class="card-copy mb-4">Continuous base collections.</p>
+
+            <div class="row g-4">
+              <div class="col-md-6">
+                <article class="product-card">
+                  <div class="media-placeholder product-image">
+                    <img src="Assets/Kids.jpg" alt="Kids skating">
+                  </div>
+                  <h4 class="product-title">Kids Tee Collection</h4>
+                  <div class="product-price">Kids 29 €</div>
+                  <p class="mb-4"></p>
+                  <a href="#" class="btn arcade-btn-secondary">Buy Now</a>
+                </article>
+              </div>
+
+              <div class="col-md-6">
+                <article class="product-card">
+                  <div class="media-placeholder product-image">
+                      <img src="Assets/Adults.jpg" alt="Adults skating">
+                  </div>
+                  <h4 class="product-title">Adults Tee Collection</h4>
+                  <div class="product-price">Adults 39 €</div>
+                  <p class="mb-4"></p>
+                  <a href="#" class="btn arcade-btn-secondary">Buy Now</a>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-panel app-panel-blue p-4">
+            <div class="label-tag label-blue mb-3">Blue Label</div>
+            <h3 class="card-title-main">Seasonal limited drops</h3>
+            <p class="card-copy mb-4">Limited series, pre-order only. Max 100 units with the same print.</p>
+
+            <div class="row g-3">
+              <div class="col-12 col-md-6 col-lg-3">
+                <article class="product-card product-card-blue">
+                  <h4 class="product-title">Skate Hustle Founder Base Pack</h4>
+                  <div class="product-price product-price-pink">Kids 49 € & Adults 59 €</div>
+                  <p class="mb-4">Founder Pack pre-order with shirt and base founder sprite.</p>
+                  <a href="#" class="btn arcade-btn-secondary">Pre-order Now</a>
+                </article>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-3">
+                <article class="product-card product-card-blue">
+                  <h4 class="product-title">Skate Hustle Founder Collector Pack</h4>
+                  <div class="product-price product-price-pink">Kids 69 € & Adults 79 €</div>
+                  <p class="mb-4">Founder Pack pre-order with shirt, base founder sprite and graffiti print.</p>
+                  <a href="#" class="btn arcade-btn-secondary">Pre-order Now</a>
+                </article>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-3">
+                <article class="product-card product-card-blue">
+                  <h4 class="product-title">Summer 2026 Skate Base Pack</h4>
+                  <div class="product-price product-price-pink">Kids 49 € & Adults 59 €</div>
+                  <p class="mb-4">Summer 2026 print pre-order with shirt and summer 2026 sprite.</p>
+                  <a href="#" class="btn arcade-btn-secondary">Pre-order Now</a>
+                </article>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-3">
+                <article class="product-card product-card-blue">
+                  <h4 class="product-title">Summer 2026 Skate Collector Pack</h4>
+                  <div class="product-price product-price-pink">Kids 69 € & Adults 79 €</div>
+                  <p class="mb-4">Summer 2026 print pre-order with shirt, summer 2026 sprite and graffiti print.</p>
+                  <a href="#" class="btn arcade-btn-secondary">Pre-order Now</a>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-panel p-4">
+            <div class="label-tag label-black mb-3">Black Label</div>
+            <h3 class="card-title-main">Collector's Box &amp; Collabs</h3>
+            <p class="card-copy mb-4">Exclusive artist &amp; skaters collaboration.</p>
+
+            <div class="row g-4">
+              <div class="col-md-6">
+                <article class="product-card">
+                  <div class="media-placeholder product-image">
+                    <img src="Assets/Black2.jpg" alt="Woman and man sitting with skateboards">
+                  </div>
+                  <h4 class="product-title">Artist edition</h4>
+                  <div class="product-price product-price-gold mb-3">Adults 129 €</div>
+                  <p class="mb-4">Made in collaboration with local artists. Includes Adults Premium Shirt and Custom Deck Wrap.</p>
+                  <a href="#" class="btn arcade-btn-secondary">Request Drop Access</a>
+                </article>
+              </div>
+
+              <div class="col-md-6">
+                <article class="product-card">
+                  <div class="media-placeholder product-image">
+                    <img src="Assets/Black3.jpg" alt="Woman and man sitting with skateboards">
+                  </div>
+                  <h4 class="product-title">Skaters edition</h4>
+                  <div class="product-price product-price-gold mb-3">Adults 149 €</div>
+                  <p class="mb-4">Made in collaboration with skaters. Includes Adults Premium Shirt, Custom Deck Wrap and Griptape Art.</p>
+                  <a href="#" class="btn arcade-btn-secondary">Request Drop Access</a>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="story" class="section-space">
+      <div class="container">
+        <div class="section-heading-wrap">
+          <div>
+            <div class="eyebrow">The story</div>
+            <h2 class="section-title">The Modern Skate Family.</h2>
+          </div>
+          <p class="section-intro">At the intersection of Skate Culture and Art.</p>
+        </div>
+
+        <div class="app-panel story-shell p-3 p-md-4">
+          <div class="story-inner-card p-4 mb-4">
+
+            
+            <p class="card-copy">
+              We are a skating family building a brand together. Dad codes and creates art and kid earns "sweat equity" by handling logistics, packing, and learning real business realities.
+            </p>
+            <p class="card-copy">
+              Our operating principles are strictly sustainable, ethical, and quality-driven. If the canvas fails, the art is worthless.
+            </p>
+            <p class="story-highlight mb-0">Designed in and printed in Helsinki.</p>
+          </div>
+            <div class="row g-3">
+
+            <div class="col-12">
+                <div class="media-placeholder story-image-wide">
+                    <img src="Assets/Drawing-prints.jpg" alt="Parents drawing artwork">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="media-placeholder story-image-square">
+                    <img src="Assets/Packing.jpg" alt="Kid packing orders">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="media-placeholder story-image-square">
+                    <img src="Assets/Kid-skating.jpg" alt="Kid skating / session still">
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="media-placeholder story-image-wide">
+                    <img src="Assets/Printing.jpg" alt="Local printing / workbench">
+                </div>
+            </div>
+
+            </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="lab" class="section-space">
+      <div class="container">
+        <div class="section-heading-wrap">
+          <div>
+            <div class="eyebrow">The Lab</div>
+            <h2 class="section-title">Skate media.</h2>
+          </div>
+          <p class="section-intro">Collection of our videos and other media.</p>
+        </div>
+
+        <div class="app-panel story-shell p-3 p-md-4">
+          <div class="row g-3">
+            <div class="col-md-6 col-lg-4">
+              <div class="media-placeholder video-frame">
+                <div>
+                  <div class="placeholder-kicker">Video placeholder</div>
+                  <p class="mb-0">Parking garage session / raw clip</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="media-placeholder video-frame">
+                <div>
+                  <div class="placeholder-kicker">Video placeholder</div>
+                  <p class="mb-0">Bail reel / raw clip</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="media-placeholder video-frame">
+                <div>
+                  <div class="placeholder-kicker media-video-frame">Video placeholder</div>
+                  <p class="mb-0">Foundry alley line / raw clip</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="media-placeholder video-frame">
+                <div>
+                  <div class="placeholder-kicker">Video placeholder</div>
+                  <p class="mb-0">DIY spot warmup / raw clip</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="media-placeholder video-frame">
+                <div>
+                  <div class="placeholder-kicker">Video placeholder</div>
+                  <p class="mb-0">Sunset curb manual / raw clip</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="media-placeholder video-frame">
+                <div>
+                  <div class="placeholder-kicker">Video placeholder</div>
+                  <p class="mb-0">Basement setup notes / raw clip</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="guides" class="section-space">
+      <div class="container">
+        <div class="section-heading-wrap">
+          <div>
+            <div class="eyebrow">The guide</div>
+            <h2 class="section-title">Keep the setup alive.</h2>
+          </div>
+          <p class="section-intro">Collectible comic-style guide-cards.</p>
+        </div>
+
+        <div class="guide-strip">
+          <div class="guide-card">
+            <div class="media-placeholder guide-image">
+              <img src="Assets/Card1.jpg" alt="Cleaning bearings">
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <div class="media-placeholder guide-image">
+              <img src="Assets/Card2.jpg" alt="Changing grip tape">
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <div class="media-placeholder guide-image">
+              <img src="Assets/Card3.jpg" alt="Checking trucks">
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <div class="media-placeholder guide-image">
+              <img src="Assets/Card4.jpg" alt="Wheel rotation">
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <div class="media-placeholder guide-image">
+              <img src="Assets/Card5.jpg" alt="Deck care basics">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <footer class="footer-area">
+    <div class="container">
+      <img src="Assets/SSM-logo-monkeys-no-evil.png" alt="Logo" class="footer-logo">
+      <p class="mb-0">Prototype. No checkout, no commerce flow.</p>
+      <p class="mb-0">© 2026 Skating Space Monkeys. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+
+  <script>
+    function scaleGame() {
+      const embed = document.getElementById("gameEmbed");
+      const stage = document.getElementById("gameStage");
+      if (!embed || !stage) return;
+
+      const baseWidth = 1300;
+      const baseHeight = 760;
+      const availableWidth = embed.clientWidth;
+      const scale = availableWidth / baseWidth;
+
+      stage.style.transform = `scale(${scale})`;
+      embed.style.height = `${baseHeight * scale}px`;
+    }
+
+    window.addEventListener("load", scaleGame);
+    window.addEventListener("resize", scaleGame);
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
